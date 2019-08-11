@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画的其他属性</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color:red;
+			animation-name: sport;
+			animation-duration:2s;
+		}
+		@keyframes sport{
+			from{
+				transform:rotate(0deg);
+			}
+			to{
+				transform:rotate(8899deg);
+			}
+		}
+		.box2{
+			width:200px;
+			height:200px;
+			background-color:blue;
+			animation-name: sport;
+			animation-duration:2s;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	
+</body>
+</html>

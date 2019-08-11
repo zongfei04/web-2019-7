@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js写在标签中</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width:200px;
+			height:200px;
+			border:1px solid;
+			margin:100px auto;
+			background-color: red;
+		}
+	</style>
+	<script>
+		function toBig(){
+			var odiv = document.getElementById('box')
+			odiv.style.width='300px';
+			odiv.style.height='300px';
+			odiv.style.background='blue';
+		}
+		function tonormal(){
+			var odiv= document.getElementById('box')
+			odiv.style.width='200px';
+			odiv.style.height='200px';
+			odiv.style.background='red';
+
+		}
+
+		
+	</script>
+</head>
+<body>
+	<div id="box" onmouseover="toBig()" onmouseout="tonormal()"></div>
+	
+</body>
+</html>

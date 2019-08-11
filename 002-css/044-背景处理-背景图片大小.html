@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景图片大小</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			width:200px;
+			height:200px;
+			border:1px solid;
+			margin:5px auto;
+			list-style: none;
+			background-image:url(../images/2.jpg);
+			background-repeat:no-repeat;
+
+		}
+		li:nth-child(2){
+			background-size:200px 200px;
+
+		}
+		li:nth-child(3){
+			background-size:100px 200px;
+		}
+		li:nth-child(4){
+			background-size:200px;
+		}
+		li:nth-child(5){
+			background-size:100% 100%;
+		}
+		li:nth-child(6){
+			background-size:100px auto;
+		}
+		li:nth-child(7){
+			height:300px;
+			background-size:cover;
+		}
+		li:nth-child(8){
+			height:300px;
+			background-size:contain;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	
+</body>
+</html>

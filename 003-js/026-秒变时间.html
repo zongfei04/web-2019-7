@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>秒变时间</title>
+	<script>
+		iScond = 36012;
+		iHour = parseInt(iScond/3600);
+		console.log(iHour);
+		iMiniute = parseInt(iScond%3600/60);
+		console.log(iMiniute);
+		iS = iScond%3600%60;
+		console.log(iS);
+		if(iHour<10){
+			iHour = '0'+iHour
+		}
+		if(iMiniute<10){
+			iMiniute = '0'+iMiniute
+		}
+		if(iS<10){
+			iS = '0'+iS
+		}
+		time = iHour+':'+iMiniute+':'+iS;
+		console.log(time);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

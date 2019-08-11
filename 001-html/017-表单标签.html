@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-表单标签</title>
+	<style>
+		textarea{resize:none;} 
+	</style>
+</head>
+<body>
+	<form action="http://www.kuazhu.com/" method="GET">
+	<p>
+		<label for="user">
+			用户名：
+		</label>
+		<input type = "text" name="username" value="" placeholder=
+		"请输入字段" autocomplete="off" id="user"> 
+	</p>
+	<p>
+		<label for="password">密码：</label>
+		<input type = password name="password" value="" id="password">
+	</p>
+	<p>
+		性别：
+		<input type="radio" name="sex" value="men" checked="">男
+		<input type="radio" name="sex" value="women">女
+
+	</p>
+	<p>
+		爱好：
+		<input type="checkbox" name="hobby" value="basketball">篮球
+		<input type="checkbox" name="hobby" value="football">足球
+		<input type="checkbox" name="hobby" value="volleyball">排球
+	</p>
+	<p>
+		<input type="image" src="C:\Users\Administrator\Desktop\2.jpg">
+	</p>
+	<p>
+		<input type="hidden" name="number" value="123456">
+	</p>
+	<input type="reset" value="清除内容">
+	<input type="submit" value="提交按钮">
+	<input type="button" value="按钮">
+	<p>
+		自我介绍：<textarea name="自我介绍" id="" cols="50" rows="30"></textarea>
+	</p>
+	<p>
+		上传文件：<input type="file">
+	</p>
+	<p>
+		检验邮箱的合法性：<input type="email">
+	</p>
+	</form>
+
+	
+</body>
+</html>

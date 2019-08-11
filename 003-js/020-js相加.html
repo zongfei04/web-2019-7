@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js相加求和</title>
+	<script>
+	</script>
+</head>
+<body>
+	<input type="text" id="txt1"> +
+	<input type="text" id="txt2">
+	<input type="button" value="求和" id="btn">
+</body>
+<script>
+	var odiv = document.getElementById('btn');
+	// console.log(odiv); 
+	odiv.onclick = function(){
+		var text1 = document.getElementById('txt1');
+		var text2 = document.getElementById('txt2');
+		value1 = parseFloat(text1.value);
+		// console.log(value1);
+		value2 = parseFloat(text2.value);
+		
+		if (isNaN(value1)) {
+			alert('value1这不是一个数字,请重新输入')
+		}
+		else if(isNaN(value2)){
+			alert('value2不是一个数字，请重新输入')
+		}
+		else{
+			alert(value1+value2);
+		}
+	}
+	
+</script>
+</html>

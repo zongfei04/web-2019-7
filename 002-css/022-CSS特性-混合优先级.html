@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>优先级</title>
+	<!-- 优先级：id>类>标签>通用>间接>默认 -->
+	<style>
+	/*#ul1 #li1 #p1{
+		color:red;
+		}
+	#li1 #p1{
+		color:green;
+		}*/
+	/*.ul1 .li1 .p1{
+		color:green;
+	}
+	.ul1 .p1{
+		color:red;
+	}
+	*/
+	/*ul li p{
+		color:red;
+	}
+	li p{
+		color:green;
+	}*/
+	 #li1 #p1 {
+		color:red;
+	}
+	#ul1 #p1{
+		color:green;
+	}
+
+
+
+	</style>
+	
+</head>
+<body>
+	<ul class="ul1" id="ul1">
+		<li class="li1" id="li1">
+			<p class="p1" id="p1">我是中国人</p>
+		</li>
+	</ul>
+</body>
+</html>

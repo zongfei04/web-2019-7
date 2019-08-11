@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动6</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father1{
+			margin-bottom:20px;
+			background-color:red;
+			overflow:hidden;
+		}
+		.father1 p{
+			width:100px;
+			background-color:green;
+
+		}
+		.father1 p:nth-child(1){
+			float:left;
+		}
+		.father1 p:nth-child(2){
+			float:left;
+		}
+		.father1 p:nth-child(3){
+			float:left;
+		}
+		.father2{
+			margin-top:20px;
+			background-color:yellow;
+		}
+		.father2 p{
+			width: 100px;
+			background-color:purple;
+
+		}
+		.father2 p:nth-child(1){
+			float:left;
+	
+		}
+		.father2 p:nth-child(2){
+			float:left;
+		}
+		.father2 p:nth-child(3){
+			float:left;
+		}
+		/*.clearfix:after{
+			clear:both;
+			display:block;
+			content:"";
+			/*visibility:hidden;
+			height:0;
+
+		}*/
+
+		
+	</style>
+</head>
+<body>
+	<div class="father1 clearfix">
+		<p>p1</p>
+		<p>p2</p>
+		<p>p3</p>
+	</div>
+	<div class="father2">
+		<p>01</p>
+		<p>02</p>
+		<p>03</p>
+	</div>
+	
+</body>
+</html>

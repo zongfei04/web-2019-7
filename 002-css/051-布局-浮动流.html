@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动流</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width:700px;
+			height:400px;
+
+			border:10px solid;
+			margin:50px auto;
+
+		}
+		.son1{
+			float:left;
+			width: 50%;
+			height: 50%;
+			background-color:red;
+			font-size:24px;
+			color:yellow;
+			/*text-align:center;*/
+			/*background-position: center bottom;*/
+			/*vertical-align: center;*/
+			text-align:center;
+/*			padding:100px;*/
+
+		}
+		.son2{
+			float:left;
+			width: 50%;
+			height: 200px;
+			background-color:green;
+		}
+		.son3{
+			float:left;
+			width:50%;
+			height:200px;
+			background-color:blue;
+		}
+		.son4{
+			float:left;
+			width:50%;
+			height:200px;
+			background-color:pink;
+		}
+		
+	</style>
+</head>
+<body>
+    <div class="father">
+    	<div class="son son1">我是珍珠</div><div class="son son2">我是黄金</div>
+    	<div class="son3">我是白银</div><div class="son4">我是钻石</div>
+    </div>
+</body>
+</html>

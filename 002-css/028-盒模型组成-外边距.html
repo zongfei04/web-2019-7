@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>外边距</title>
+	<style>
+		/*div{
+			width:200px;
+			height:200px;
+		}
+		div:first-child{
+			background-color:red;
+		}
+		div:nth-child(2){
+			background-color:green;
+		}
+		div:last-child{
+			background-color:purple;
+		}*/
+		*{
+			margin:0;
+			padding:0;
+
+		}
+		.father{
+	
+			border:1px solid ;
+		}
+		.father div{
+			width:200px;
+			height:200px;
+			display: inline-block;
+			vertical-align: bottom;
+			margin-top:20px;
+		}
+		.son1{
+			background-color: red
+		}
+		.son2{
+			background-color: green;
+			margin-right:20px;
+			margin-left:20px;
+		}
+		.son3{
+			background-color: orange
+		}
+	</style>
+
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div><div class="son2"></div><div class="son3"></div>
+	</div>
+	
+	
+</body>
+</html>

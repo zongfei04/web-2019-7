@@ -1,0 +1,39 @@
+.top{
+	height:34px;
+	background-color: red;
+}
+.nav{
+	float:left;
+	height:34px;
+	width:680px;
+	background-color: purple;
+}
+.info{
+	float:right;
+	height:34px;
+	width:154px;
+	background-color:skyblue;
+}
+.cart{
+	float:right;
+	height:34px;
+	width:120px;
+	background-color: pink;
+
+}
+.header{
+	height:100px;
+	background-color: green;
+}
+.home{
+	height:832px;
+	background-color: blue;
+}
+.main{
+	height:2138px;
+	background-color:orange; 
+}
+.footer{
+	height:284px;
+	background-color: gray;
+}

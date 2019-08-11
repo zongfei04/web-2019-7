@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011后代选择器</title>
+	<style>
+		div p {
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div>
+			<div class="father">
+				<div class="son">
+					<p>我是段落11</p>
+					<p>我是段落22</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p>我是段落33</p>
+	</div>
+	<p class="son">我是段落44</p>
+</body>
+</html>

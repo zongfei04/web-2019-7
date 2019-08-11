@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>长方体的制作</title>
+<head>
+<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style:none;
+		}
+		ul{
+			position:relative;
+			width:200px;
+			height:200px;
+			margin:100px auto;
+			transform-style:preserve-3d;
+			transform:rotateX(10deg) rotateY(40deg); 
+			/*border:1px solid;		*/
+		}
+		ul li{
+			position:absolute;
+			width:200px;
+			text-align:center;
+			height:200px;
+			line-height:200px;
+		}
+		li:nth-child(1){
+			background-color:red;
+			transform:translate(-200px) rotateY(-90deg);
+			
+		}
+		li:nth-child(2){
+			background-color:blue;
+			transform:translate(200px) rotateY(90deg);
+		}
+		li:nth-child(3){
+			background-color: green;
+			transform:translateY(100px) rotateX(90deg) scale(2,1);
+		}
+		li:nth-child(4){
+			background-color:pink;
+			transform:translateY(-100px) rotateX(90deg) scale(2,1);
+		}
+		li:nth-child(5){
+			background-color:purple;
+			transform:translateZ(100px) scale(2,1);
+		}
+		li:nth-child(6){
+			background-color: yellow;
+			transform:translateZ(-100px) rotateY(180deg) scale(2,1);
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li> 
+	</ul>
+
+</body>
+</html>
