@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示隐藏</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border:1px solid;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="消息" id="btn">
+	<div id="box">我是内容</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	oBtn.onclick = function(){
+		// alert('..hi')
+		if(oBox.style.display == 'none'){
+			oBox.style.display = 'block';
+		}else{
+			oBox.style.display = 'none';
+		}
+
+
+	}
+</script>
+</html>

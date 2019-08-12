@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#btn-list{
+			overflow: hidden;
+		}
+		#btn-list li{
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			float: left;
+		}
+		#content-list li{
+			margin-top: 30px;
+			width: 300px;
+			height: 300px;
+			border:1px solid;
+			line-height: 300px;
+			text-align: center;
+			display: none;
+		}
+		.active{
+			color:#ff6700;
+			border-bottom: 1px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul id="btn-list">
+		<li class="active">热门</li>
+		<li>电视影音</li>
+		<li>手机</li>
+		<li>电脑</li>
+	</ul>
+	<ul id='content-list'>
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+	var oBtn = document.querySelectorAll('#btn-list li');
+	var oContent = document.querySelectorAll('#content-list li');
+	// console.log(oBtn);
+	// console.log(oContent);
+	
+	for(var i = 0;i<oBtn.length;i++){
+		oBtn[i].index = i;
+		// console.log(oBtn[i]);
+		
+		oBtn[i].onmouseover = function(){
+			console.log(oBtn[i]);
+
+			for(var j= 0;j<oBtn.length;j++){
+				oBtn[j].className = '';
+				oContent[j].style.display='';
+			}
+			this.className = 'active';
+			oContent[this.index].style.display='block';
+		}
+	}
+</script>
+</html>
