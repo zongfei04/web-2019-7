@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>局部变量</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var i = 1;
+	
+	function fn1(){
+		var i = 1;
+		function fn2(){
+			console.log('fn2' , i)
+			function fn3(){
+				console.log('fn3' , i);
+
+			}
+			function fn4(){
+					fn3();
+				}
+				fn4();
+		}
+		fn2();
+	}
+	fn1();
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的作用域</title>
+</head>
+<body>
+	<script>
+		function fn(){
+			var i = 1;
+			console.log(i);
+			if(true){
+			i = 2;
+			}
+			console.log(i);
+			for(var j = 0;j<5;j++){
+				if(j == 3){
+					continue;
+					// break;
+				}
+				console.log('for',j);
+
+			}
+			console.log( j);
+		}
+		fn();
+
+
+		
+	</script>
+</body>
+</html>

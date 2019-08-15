@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全局变量上</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var i = 1;
+	function fn1(){
+		console.log('3'+ i);
+		var i = 2;
+		function fn2(){
+			console.log('2',i)
+			console.log(typeof i);
+		}
+		fn2();
+	}
+	console.log(i);
+	fn1();
+	console.log('1'+ i)
+</script>
+</html>
