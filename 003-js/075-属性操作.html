@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性操作</title>
+</head>
+<body>
+	<input type="text" id="txt" value=" asd">
+	<input type="button" id="btn" value="点击">
+	<textarea name="content" id="content" cols="30" rows="10" value=""></textarea>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oContent = document.getElementById('content');
+	oBtn.onclick = function(){
+		// var val = oTxt.value;
+		// oContent.value = val;
+
+		// var val = oTxt['value'];
+		// oContent['value'] = val;
+
+		// var val = oTxt.getAttribute('value');
+		// console.log(val);
+		//oContent.setAttribute('value',456);
+		oContent.removeAttribute('value');
+		
+	}
+</script>
+</html>
