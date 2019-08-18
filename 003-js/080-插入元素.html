@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入元素</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+	var oUl = document.getElementById('ul1');
+	var aLi = oUl.children;
+	var oLi = document.createElement('li');
+	oLi.innerHTML= '我是插入的';
+	oUl.insertBefore(oLi,aLi[2]);
+</script>
+</html>
