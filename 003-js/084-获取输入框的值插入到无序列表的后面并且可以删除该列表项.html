@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取输入框的值</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+
+
+		}
+		.box{
+			width: 400px;
+			margin: 100px auto;
+		}
+		li{
+			border-bottom: 1px dashed gray;
+			height: 40px;
+		}
+		a{
+			color:#670;
+			float:right;
+			text-decoration: none;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="box">
+	<textarea  id="txt" cols="30" rows="10"></textarea>
+	<input type="button" id="btn" value="点击">
+	<ul id="ul1">
+		<li>我是第一个评论<a href="javascript:;">隐藏</a></li>
+	</ul>
+	</div>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oUl = document.getElementById('ul1');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var oLi = document.createElement('li');
+		var oA = document.createElement('a');
+		oA.href = 'javascript:;'
+		oA.innerHTML = '隐藏';
+		oLi.innerHTML = val;
+		oA.onclick = function(){
+			oUl.removeChild(oLi);
+		}
+		oLi.appendChild(oA);
+		oUl.insertBefore(oLi,oUl.firstChild);
+		oTxt.value = '';
+	}
+</script>
+</html>

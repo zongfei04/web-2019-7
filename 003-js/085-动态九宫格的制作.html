@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态九宫格的制作</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="克隆">
+	<div id="box">
+		<div id="son"></div>
+		
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var aDiv = oBox.children;
+	width = 100;
+	height = 100;
+	margin = 20;
+	iColl = 3;
+	// console.log(oDiv);
+	oBtn.onclick = function(){
+		oDiv = aDiv[0].cloneNode();
+		oBox.appendChild(oDiv);
+		for(var i = 0;i<aDiv.length;i++){
+			var iCol = i%iColl;
+			var iRow = parseInt(i/iColl);
+			aDiv[i].style.left = iCol*(width+margin)+'px';
+			aDiv[i].style.top = iRow*(height+margin)+'px';
+		}
+	}
+	
+</script>
+</html>
