@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动文字</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			width: 330px;
+			height: 400px;
+			border: 1px solid;
+			margin: 100px auto;
+			position:relative;
+
+		}
+		#content{
+			width: 300px;
+			height: 400px;
+			position: relative;
+			overflow: hidden;
+		}
+		#txt{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#box{
+			width: 30px;
+			height: 400px;
+			background-color: #ccc;
+			position: absolute;
+			left: 300px;
+			top: 0;
+
+		}
+		#btn{
+			position:absolute;
+			left: 0;
+			top: 0;
+			width: 30px;
+			height: 30px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="content">
+			<div id="txt">我是内容中国台湾网8月25日讯 据台湾“东森新闻云”报道，台湾前“立法院长”王金平25日到高雄参加法会，再度被媒体询问跟台北市长柯文哲、鸿海前董座郭台铭两个人之间的互动，三人究竟何时会坐下来谈？王金平回应称：“我也没有做这样的规划”，但随后又补了一句“是不是另外有人做这样的规划，我不知道，所以我说随因缘走，我不会去主动什么”。
+
+			据报道，王金平看起来神清气爽，不过媒体的焦点还是放在他跟柯文哲、郭台铭之间的互动关系上。是否会两两相见，并不如外传会三个人一起见面？王金平说：“有约定再说”。但是媒体还是没放弃，继续追问，王金平说：“我讲过，随着因缘走，能够见面就见面，不能够见面也就没有见面”，而且他也强调：“我也没有做这样的规划，那是不是另外有人做这样的规划，我不知道，所以我说随因缘走，我不会去主动什么”。
+
+			被问三个人何时见面？王金平都以“因缘”来回避，不过对于国民党跟王金平之间的关系，王金平仍然坚持自己会参选到底的立场并没有改变。会不会担心被国民党开铡？王金平说：“还没到那个时机，所以我说顺着因缘走，未来看怎样发展”。对于是否会担任国民党的“选举陆军总司令”？王金平简单地回答称，每个人都有他扮演的角色，未来该怎么扮演，再说！（中国台湾网 李宁）
+			</div>
+		</div>
+		<div id="box">
+			<div id="btn">
+				
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var oWrap = document.getElementById('wrap')
+	var oBox = document.getElementById('box')
+	var oBtn = document.getElementById('btn')
+	var oContent = document.getElementById('content')
+	var oTxt = document.getElementById('txt')
+	var disY=0,t=0;
+	oBtn.onmousedown = function(ev){
+		disY = ev.clientY - oBtn.offsetTop;
+		document.onmousemove = function(ev){
+			var t = ev.clientY - disY;
+			if(t<0){
+					t = 0;
+				}
+				else if(t>(oBox.offsetHeight - oBtn.offsetHeight)){
+					t=(oBox.offsetHeight - oBtn.offsetHeight)
+				}
+			oBtn.style.top = t +'px';
+			var scale = oBtn.offsetTop / (oBox.offsetHeight - oBtn.offsetHeight);
+			// console.log(scale);
+			oTxt.style.top = (oContent.offsetHeight - oTxt.offsetHeight)*scale + 'px';
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+
+	}
+	oWrap.onmousewheel =function(ev){
+		if(ev.wheelDelta>0){
+			t = t+10;
+			
+		}
+		else{
+			t = t-10;
+		}
+		if(t<0){
+					t = 0;
+				}
+				else if(t>(oBox.offsetHeight - oBtn.offsetHeight)){
+					t=(oBox.offsetHeight - oBtn.offsetHeight)
+				}
+			oBtn.style.top = t +'px';
+			var scale = oBtn.offsetTop / (oBox.offsetHeight - oBtn.offsetHeight);
+			// console.log(scale);
+			oTxt.style.top = (oContent.offsetHeight - oTxt.offsetHeight)*scale + 'px';
+
+	}
+</script>
+</html>

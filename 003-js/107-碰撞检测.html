@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>碰撞检测</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+
+		}
+		#box{
+			position:absolute;
+			left: 0px;
+			top: 0px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+
+		}
+		#box1{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			left: 400px;
+			top: 400px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box1"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBox1 = document.getElementById('box1');
+	var disX,disY;
+	oBox.onmousedown = function(ev){
+		disX = ev.clientX - oBox.offsetLeft;
+		disY = ev.clientY - oBox.offsetTop;
+		document.onmousemove = function(ev){
+			oBox.style.left = ev.clientX - disX +'px';
+			oBox.style.top = ev.clientY - disY +'px';
+			if((oBox.offsetLeft+oBox.offsetWidth)>oBox1.offsetLeft
+				&&(oBox.offsetTop+oBox.offsetHeight)>oBox1.offsetTop
+				&&(oBox1.offsetLeft+oBox1.offsetWidth)>oBox1.offsetLeft){
+				oBox1.style.backgroundColor = 'blue'
+			}
+			else{
+				oBox1.style.backgroundColor = '#ccc'
+			}
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>
