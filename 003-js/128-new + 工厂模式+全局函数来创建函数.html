@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new + 工厂模式+全局函数来创建函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sayName(){
+		console.log('I am '+this.name);
+	}
+	function sayAge(){
+		console.log('I am '+this.age+' years old');
+	}
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		this.sayName = sayName;
+		this.sayAge = sayAge;
+		return
+	}
+	var person1 = new Person('tom',18);
+	console.log(person1)
+	person1.sayName();
+	person1.sayAge();
+	var person2 = new Person('mike',34);
+	console.log(person2);
+	person2.sayName();
+	person2.sayAge();
+	console.log(person1.sayAge == person2.sayAge);
+
+</script>
+</html>

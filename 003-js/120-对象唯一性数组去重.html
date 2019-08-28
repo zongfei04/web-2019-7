@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象唯一性数组去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [11,22,33,33,22,11,44,55];
+	function uniqueArray(arr){
+		var result = [];
+		var obj = {};
+		for(var i = 0;i<arr.length;i++){
+			obj[arr[i]] = "";
+		}
+		//console.log(obj);
+		for(attr in obj){
+			// console.log(attr);
+			result.push(attr);
+		}
+		// console.log(result);
+		return result;
+
+	}
+
+	var aStr = (uniqueArray(arr));
+	for(var j = 0;j<aStr.length;j++){
+		//console.log(aStr[j]);
+		aStr[j] = aStr[j]*1;
+		console.log(aStr[j])
+	}
+	console.log(aStr);
+</script>
+</html>

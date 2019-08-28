@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new的作用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// function show(){
+	// 	this.name = "tom";
+	// 	this.age = 18;
+	// 	this.sayHi = function(){
+	// 		console.log('hi..')
+	// 	}
+	// 	return "aaa"
+	// }
+	// console.log(show());
+	// var obj = new show();
+	// console.log(obj);
+	// obj.sayHi();
+	function show(){
+		console.log(this);
+		this.name = "tom"
+	}
+	//window.show()
+	console.log(new show);
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用工厂模式来创建函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function createPerson(name,age){
+		var obj = new Object();
+		obj.name = name;
+		obj.age = age;
+		obj.sayName = function(){
+			console.log('I am '+this.name);
+		}
+		obj.sayAge = function(){
+			console.log('I am '+this.age+' years old');
+		}
+		return obj
+	}
+	var person1 = createPerson('tom',18);
+	console.log(person1);
+	person1.sayAge();
+
+</script>
+</html>
