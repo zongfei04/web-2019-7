@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原子筛选-取反</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = 'sdl;gkhwoertui;lsdkgeiogha498456498$%^#^&&';
+	var reg = /[a-z]/g;
+	var reg2 = /[^a-z]/g;
+	var reg3 = /[0-9]/g;
+	var reg4 = /[^0-9]/g;
+	console.log(str.replace(reg,'#'));
+	console.log(str.replace(reg2,'#'));
+	console.log(str.replace(reg3,'#'));
+	console.log(str.replace(reg4,'#'));
+</script>
+</html>

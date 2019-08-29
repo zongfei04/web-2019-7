@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>焦点图</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	function Carousel(id,aImg,width,height){
+		//罗列属性
+		this.oBox = document.getElementById(id);
+		this.aImg = aImg;
+		this.width = width;
+		this.height = height;
+		//初识化节点
+		this.init(); 
+	}
+	Carousel.prototype.init = function(){
+		//console.log('aaa');
+		//设置盒子的属性
+		this.oBox.style.position = 'relative';
+		this.oBox.style.width = this.width + 'px';
+		this.oBox.style.height = this.height + 'px';
+		//生成ul
+		var oUlImg = document.createElement('ul');
+		for(var i = 0;i<this.aImg.length;i++){
+			var oLiImg = document.createElement('li');
+			var oImg = document.createElement('img');
+
+			//给每个li元素设置样式
+			oLiImg.style.position = 'absolute';
+			oLiImg.style.top = 0;
+			oLiImg.style.left = 0;
+			
+
+
+
+			oImg.src = this.aImg[i];
+
+			oLiImg.appendChild(oImg);
+			oUlImg.appendChild(oLiImg);
+		}
+
+
+
+		this.oBox.appendChild(oUlImg);
+
+	}
+
+	new Carousel('box',['../../project/images/carousel1.jpg','../../project/images/carousel2.jpg','../../project/images/carousel3.jpg'],800,600);
+</script>
+</html>
