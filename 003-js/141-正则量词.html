@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则量词</title>
+</head>
+<body>
+	
+</body>
+ <script>
+ 	var str = 'arb 345 89 23456 987654325 0 833456 456';
+ 	console.log(str);
+ 	var reg = /\d{3}/g;
+ 	var reg1 = /\d{3,}/g;
+ 	var reg2 = /\d{2,6}/g;
+ 	var reg3 = /\d+/g;
+ 	var reg4 = /\d?/g;
+ 	var reg5 = /\d*/g;
+ 	console.log(str.replace(reg,'#'));
+ 	console.log(str.replace(reg1,'#'));
+ 	console.log(str.replace(reg2,'#'));
+ 	console.log(str.replace(reg3,'#'));
+ 	console.log(str.replace(reg4,'#'));
+ 	console.log(str.replace(reg5,'#'));
+ 	
+ </script>
+</html>
