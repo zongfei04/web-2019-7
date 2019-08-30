@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取表单和表单元素</title>
+</head>
+<body>
+	<form action="" id="form1">
+		<input type="text" id="txt1" name="txt">
+		<input type="button" id="btn" value="提交" name="btn">
+		<input type="password" id="pass" name="password">
+		<input type="radio" name="sex" >男
+		<input type="radio" name="sex">女
+	</form>
+	<!-- <form action="" id="form2"></form> -->
+</body>
+<script>
+	var oForm = document.forms[0];
+	/*
+	console.log(oForm[0]);
+	console.log(oForm.elements);
+	var oTxt = oForm.elements[0];
+	console.log(oTxt)
+	//console.log(oForm.elements['btn']);
+	console.log(oForm.elements.password);
+	console.log(oForm.btn);
+	console.log(oForm.sex);
+	console.log(oForm.sex[0]);
+	*/
+	console.log(oForm.btn);
+	console.log(oForm.btn.form);
+</script>
+</html>

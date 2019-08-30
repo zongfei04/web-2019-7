@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修正模式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = 'ABCabc afrAFR mOR';
+	var reg1 = /a/;
+	var reg2 = /a/g;
+	var reg3 = /a/;
+	var reg4 = /a/i;
+	var reg5 = /a/ig;
+	console.log(str.replace(reg1,'#'));
+	console.log(str.replace(reg2,'#'));
+	console.log(str.replace(reg3,'#'));
+	console.log(str.replace(reg4,'#'));
+	console.log(str.replace(reg5,'#'));
+	console.log(reg2.global);
+	console.log(reg4.ignoreCase);
+	console.log(reg3.ignoreCase);
+	console.log(reg5.ignoreCase);
+	console.log(<reg5 className="global"></reg5>);
+
+</script>
+</html>
