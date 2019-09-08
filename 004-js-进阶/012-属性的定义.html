@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性的定义</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		//console.log(this);
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		//console.log(this);
+		console.log(this.name);
+	}
+	Person.prototype.sayAge = function(){
+		console.log(this.age);
+
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18);
+	console.log(p1);
+	Object.defineProperty(p1,'sex',{
+		value : 'male',
+		enumerable:true,//判断属性值是否可以枚举
+		writable:true,//判断属性值是否可以赋值
+		configurable:false
+	})
+	Object.defineProperty(p1,'sex',{
+		value : 'male',
+		enumerable:true,//判断属性值是否可以枚举
+		writable:true,//判断属性值是否可以赋值
+		configurable:false
+	})
+	console.log(p1);
+	delete p1.sex;
+	//p1.sex = 'women';
+	console.log(p1);
+	//p1.sex = 'male';
+	for(attr in p1){
+		console.log(attr ,p1[attr]);
+	}
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性的判断</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		//console.log(this);
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		//console.log(this);
+		console.log(this.name);
+	}
+	Person.prototype.sayAge = function(){
+		console.log(this.age);
+
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18);
+	console.log(p1);
+	//p1.LEGS = 4;
+	console.log(p1.hasOwnProperty('name'));
+	//console.log(p1.hasOwnProperty('LEGS'));
+	console.log('LEGS' in p1);
+	console.log('name' in p1);
+	function hasOwnPropertyProto(attr,obj){
+		return !obj.hasOwnProperty(attr) && attr in obj;
+	}
+	console.log(hasOwnPropertyProto('LEGS',p1));
+	console.log(hasOwnPropertyProto('name',p1));
+</script>
+</html>
