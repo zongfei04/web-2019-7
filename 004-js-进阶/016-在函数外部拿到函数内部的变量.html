@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数外拿到函数内部的变量</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn(){
+		var i = 1;
+		return function fn1(){
+			console.log(i);
+		}
+	}
+	//fn();
+	var result = fn();
+	//console.log(result);
+	result();
+
+
+		/*function fn1(){
+			var n = 1;
+			add = function(){
+				n++;
+			}
+			return function(){
+				return n;
+			}
+		}
+		var result = fn1();
+		console.log(result());//1
+		add();
+		console.log(result());//2
+		*/
+</script>
+</html>

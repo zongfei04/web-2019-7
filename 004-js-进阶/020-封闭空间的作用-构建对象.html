@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构建对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Person(name,age){
+			console.log(this);
+			this.name = name;
+			this.age = age;
+		}
+		/*
+		Person.prototype.sayName = function(){
+			console.log(this.name);
+		};
+		Person.prototype.sayAge = function(){
+			console.log(this.age)
+		}
+		Person.prototype.LEGS = 2;
+		*/
+		console.log(Person.prototype);
+
+		w.Person = Person;
+	})(window);
+	console.log(new Person('tom',18));
+	
+</script>
+</html>

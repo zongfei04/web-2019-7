@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭空间的作用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 0;
+	(function(){
+		var a = 1;
+		console.log(a);
+	})();
+	(function(){
+		var a = 2;
+		console.log(a);
+	})();
+	console.log(a);
+</script>
+</html>
