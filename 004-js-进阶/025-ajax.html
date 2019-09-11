@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<button id="btn">获取文件</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//客户端创建对象
+		var oAjax = new XMLHttpRequest();
+		//console.log(oAjax);
+		//用ajax对象和服务器连接
+		oAjax.open('GET','http://127.0.0.1:3000',true);
+		//console.log(oAjax.setRequestHeader);
+		oAjax.send();
+		oAjax.onreadystatechange = function(){
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					var obj = JSON.parse(oAjax.responseText);
+					console.log(obj)
+				}
+
+			}
+		}
+	}
+</script>
+</html>
