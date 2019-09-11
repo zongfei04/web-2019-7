@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组高级方法的使用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [1,3,5,7,9,10];
+	//遍历数组,没有返回值
+	/*
+	var result = arr.forEach(function(value,index){
+		console.log('value,index',value,index);
+		return value;
+	})
+	console.log(result);*/
+	//映射数组,返回一个新数组
+	/*
+	var result = arr.map(function(value,index){
+		console.log('value,index',value,index);
+		return value ;
+	})
+	console.log(result);
+	*/
+	//过滤数组，返回值为真的原数组的值返回成一个新的数组
+	/*
+	var result = arr.filter(function(value,index){
+		console.log('value,index',value,index);
+		return value > 5;
+	})
+	console.log(result);
+	*/
+	//全真数组，所有值为真的情况下返回真，否则返回假，遍历每一个数组，有一个不符合的则为假，返回这一个值
+	/*
+	var result = arr.every(function(value,index){
+		console.log('value,index',value,index);
+		return value > 0;
+	})
+	console.log(result);
+	*/
+	//有真数组，所有值只要有一个符合返回真
+	var result = arr.some(function(value,index){
+		console.log('value,index',value,index);
+		return value > 9;
+	})
+	console.log(result);
+</script>
+</html>
