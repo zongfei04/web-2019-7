@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">获取数据</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//alert('aaa');
+		//第一步：客户端创建一个ajax对象(拿到电话)
+		var oAjax = new XMLHttpRequest();
+		console.log('beforeOpen',oAjax.readyState);
+		//第二步：用ajax对象和服务器进行连接（拨号）
+		oAjax.open('GET','http://127.0.0.1:3000/013-date.json','true');
+		console.log('afterOpen',oAjax.readyState);
+		//第三步：用ajax对象发送请求到服务端(拨出号码);
+		oAjax.send();
+		//第四步：用ajax对象接收服务端返回的数据(等待对方回应)
+		oAjax.onreadystatechange = function(){
+			//console.log(oAjax.readyState);
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					var obj = JSON.parse(oAjax.responseText);
+					console.log(obj);
+					console.log(obj.name);
+				}
+			}
+		}
+	}
+</script>
+</html>
