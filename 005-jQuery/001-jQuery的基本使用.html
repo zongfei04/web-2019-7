@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的基本使用</title>
+</head>
+<body>
+	
+</body>
+<!-- <script src="jquery-3.4.1.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-compat/3.0.0-alpha1/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	// if(!window.jQuery){
+	// 	document.write('<script src="jquery-3.4.1.js"><\/script>');
+	// }
+	window.jQuery || document.write('<script src="jquery-3.4.1.js"><\/script>')
+</script>
+<script>
+	 console.log(window);
+	/*jQuery(document).ready(function(){
+		console.log('hello1');
+	});
+	jQuery(document).ready(function(){
+		console.log('hello2');
+	})
+	window.onload = function(){
+		console.log('nihao1');
+	}
+	window.onload = function(){
+		console.log('nihao2');
+	}
+	
+	jQuery(document).ready(function(){
+		console.log('hello1');
+	})
+	$(document).ready(function(){
+		console.log('hello2');
+	})
+	*/
+	$(function(){
+		console.log('hello1');
+	})
+	$(function(){
+		console.log('hello2');
+	})
+
+</script>
+</html>
