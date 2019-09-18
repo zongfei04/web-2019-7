@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常见方法</title>
+</head>
+<body>
+	<div class="box1">div1</div>
+	<div id="box">div2</div>
+	<div class="box3">div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+		$('div').each(function(value,element){
+			console.log(this);
+		})
+		/*
+		$.each($('div'),function(value,index){
+			console.log(value,index);
+		})
+		*/
+		//console.log($('div').index($('.box3')));
+	})
+</script>
+</html>
