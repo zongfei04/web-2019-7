@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作属性</title>
+</head>
+<body>
+	<input type="text" value="aaa" name="a">
+	<input type="text" value="bbb" name="b">
+	<input type="checkbox" name="c" checked>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+		/*
+		console.log($('input').eq(2).attr('checked'));
+		console.log($('input').eq(2).prop('checked'))
+		
+		$('input').attr('name','abc');
+		$('input').prop('value','abc');*/
+		$('input').removeAttr('value');
+	})
+</script>
+</html>

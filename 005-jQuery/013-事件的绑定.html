@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件的绑定</title>
+</head>
+<body>
+	<div>al;sdkjflkg</div>
+	<div>al;sdkjflkg</div>
+	<div>al;sdkjflkg</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	/*
+	$('div').click(function(){
+		alert('s;ldkfj')
+	})
+	$('div').click(function(){
+		alert('lsd;fkjlkldsfj')
+	})
+	$('div').mouseover(function(){
+		alert('lsdkfjdlkf;gj')
+	})
+	 $('div').on('mouseover',function(){
+	 	alert('ksdljf')
+	 })
+	 $('div').on('click',function(){
+	 	alert('ldskfjdlkfjd');
+	 })
+	 $('div').on('click',function(){
+	 	alert('lsdkgjd')
+	 })*/
+	 $('div').one('click',function(){
+	 	alert('skldfjlkldskfj')
+	 })
+	 $('div').one('mouseover',function(){
+	 	alert('sdl;kfjdfgkl');
+	 })
+	
+
+</script>
+</html>
