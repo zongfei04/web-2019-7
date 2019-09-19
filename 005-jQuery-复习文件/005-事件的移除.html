@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件的移除</title>
+</head>
+<body>
+	<div>lsd;fkj;lsd</div>
+	<div>lsd;fkj;lsd</div>
+	<div>lsd;fkj;lsd</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('slakdfj')
+		})
+		$('div').on('click',function(){
+			alert('lsdkfjklds;')
+		})
+		function fn(){
+			alert('lskdfj')
+		}
+		$('div').on('click',fn);
+		$('div').on('mouseover',function(){
+			alert('s;ldskf');
+		})
+		// $('div').off();
+		$('div').off('mouseover');
+		$('div').off('click',fn);
+	})
+</script>
+</html>

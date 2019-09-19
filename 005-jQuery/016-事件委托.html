@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+</head>
+<body>
+	<button>按钮</button>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+		<li>li5</li>
+	</ul>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			var oLi = document.createElement('li');
+			oLi.innerHTML = '我是添加的'
+			$('ul')[0].appendChild(oLi);
+		})
+		/*
+		$('ul').on('click','li',function(){
+			alert('aaaa');
+		})
+		*/
+		$('ul').delegate('li','click',function(){
+			alert('lsdkf');
+		})
+
+	})
+
+</script>	
+</html>

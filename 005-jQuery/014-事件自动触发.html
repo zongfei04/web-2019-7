@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件自动触发</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.g{
+			width: 400px;
+			height: 400px;
+			background-color: green;
+			overflow: hidden;
+			margin:100px auto;
+		}
+		.f{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			margin-top:100px;
+			margin-left: 100px;
+			overflow: hidden;
+		}
+		.s{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 50px;
+			margin-left: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="g">
+		<div class="f">
+			<div class="s">
+				
+			</div>
+		</div>
+	</div>
+	<a href="http://www.kuazhu.com"><span>跨猪</span></a>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		/*
+		$('.g').on('click',function(){
+			alert('sdlfk')
+		})
+		$('.f').on('click',function(){
+			alert('ksldfj')
+		})
+		$('.s').on('click',function(){
+			alert('ldskfj')
+		})
+		//$('.s').trigger('click');
+		$('.s').triggerHandler('click');
+		
+		$('body').on('click',function(){
+			alert('lsdkf')
+		})*/
+		$('a').on('click',function(){
+			alert('a');
+		})
+		//$('span').trigger('click');
+		$('a').triggerHandler('click');
+	})
+</script>	
+</html>
