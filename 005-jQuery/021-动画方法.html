@@ -31,11 +31,13 @@
 		})
 		*/
 		$('button').eq(0).on('click',function(){
-			$('div').animate({width:500},1000).animate({height:500},1000).animate({borderRadius:'50px'})
+			$('div').delay(2000).animate({width:500},1000).animate({height:500},1000).animate({borderRadius:'50px'})
 		})
+		/*
 		$('button').eq(1).on('click',function(){
 			$('div').stop(false,true);
 		})
+		*/
 	})
 </script>	
 </html>
