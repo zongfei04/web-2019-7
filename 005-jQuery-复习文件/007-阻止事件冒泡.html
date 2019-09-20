@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止事件冒泡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.g{
+			width: 400px;
+			height: 400px;
+			background-color: green;
+			margin:50px auto;
+			position: relative;
+		}
+		.f{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			position: absolute;
+			left: 100px;
+			top:100px;
+		}
+		.s{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: 50px;
+			top:50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="g">
+		<div class="f">
+			<div class="s"></div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('.g').on('click',function(){
+			alert('lsdk');
+		})
+		$('.f').on('click',function(){
+			alert('f..');
+			return false;
+		})
+		$('.s').on('click',function(event){
+			event.stopPropagation();
+			alert('s..');
+			// return false;
+		})	
+	})
+</script>	
+</html>

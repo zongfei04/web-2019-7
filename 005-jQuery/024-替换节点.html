@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>替换节点</title>
+</head>
+<body>
+	<p>我是p</p>
+	<p>我是p</p>
+	<p>我是p</p>
+	<p>我是p</p>
+	<p>我是p</p>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//var oHi = $('<h1>我是代替的</h1>');
+		//$('p').replaceWith($('<h1>我是代替的</h1>'));
+		$('p').replaceAll('div');
+	})
+</script>	
+</html>
