@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对象的调用</title>
+</head>
+<body>
+	<div>sdlkfj</div>
+	<div id="box">lsdkfj</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var oDiv = document.getElementById('box')
+	$(function(){
+		console.log($(oDiv));
+		console.log($(false));
+		console.log($(null));
+		console.log($(undefined));
+		console.log($(0));
+		console.log($(''));
+	})
+</script>	
+</html>
