@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+			width: 300px;
+			height: 300px;
+			background-color: gray;
+		}
+		#target{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+	<div id="target" draggable=true></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#container')
+		.on('drop',function(){
+			$('#container').append($('#target'))
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+		
+		/*$('#container')
+		.on('drop',function(){
+			// console.log('aa')
+			$('#container').append($('#target'));
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})*/
+	})
+	
+</script>
+</html>
