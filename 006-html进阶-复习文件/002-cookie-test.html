@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-cookie-test.html</title>
+</head>
+<body>
+	cookie-test
+</body>
+<script>
+	//console.log(document.cookie);
+	// document.cookie = "username=Tom";
+	// document.cookie = "sex=male";
+	// document.cookie = "age=18";
+	// console.log(document.cookie);
+	//cookie的有效期设置
+	/*var oDate = new Date();
+	oDate.setDate(oDate.getDate() + 10);
+	//document.cookie = "name=Amy;Expires="+oDate;
+	document.cookie = "name=Bob;Max-Age=10";*/
+	//封装cookie的函数
+	//创建cookie
+	function setCookie(key,val,iDate){
+		var oDate = new Date();
+		oDate.setDate(oDate.getDate() + iDate);
+		document.cookie = key+"="+val+";Expires="+oDate;
+	}
+	setCookie('username','Tom','10');
+	setCookie('sex','male','10');
+	setCookie('age','18','10');
+	//获取cookie
+	function getCookie(key){
+		var str = document.cookie;
+		var arr = str.split(';');
+		 // console.log(arr);
+		for(var i = 0;i<arr.length;i++){
+			var arr1 = arr[i].split('=');
+			// console.log(arr1);
+			for(var j = 0;j<arr1.length;j++){
+				// console.log(arr1[j]);
+				
+				if(key.trim() == arr1[0].trim()){
+					return arr1[1];
+					break;
+				}
+			}
+		}
+	}
+	console.log(getCookie('sex'))
+	//删除cookie
+	function removeCookie(key){
+		setCookie(key,false,-1);
+	}
+	console.log(document.cookie);
+	removeCookie('sex');
+	console.log(document.cookie);
+</script>
+</html>
