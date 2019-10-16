@@ -1,0 +1,58 @@
+/*我是多行注释*/
+* {
+  margin: 0;
+  padding: 0;
+}
+.box1 {
+  width: 200px;
+  height: 100px;
+  background-color: #000;
+}
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: #aaa;
+}
+/*.trangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 50px;
+	border-color: #000 transparent transparent transparent;
+}*/
+.box4 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px;
+  border-color: transparent transparent #cccccc transparent;
+}
+ul {
+  list-style: none;
+  width: 500px;
+  height: 500px;
+  background-color: #ccc;
+  margin: 100px auto;
+}
+ul li {
+  width: 500px;
+  height: 40px;
+  line-height: 40px;
+}
+ul li a {
+  text-decoration: none;
+  float: right;
+}
+ul li span {
+  float: left;
+}
+ul li:hover {
+  background-color: red;
+}
+.box10 {
+  font-size: 30px;
+}
+.box11 {
+  font-size: 30px;
+  width: 300px;
+}

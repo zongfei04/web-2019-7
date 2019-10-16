@@ -53,10 +53,28 @@
 			<div class="box" draggable=true>
 				<label for="">爱好:</label>
 				<input type="checkbox" class="hobby">足球
-				<input type="checkbox" class="hobby">篮球
-				<input type="checkbox" class="hobby">跑步
+				<!-- <input type="checkbox" class="hobby">篮球 -->
+				<!-- <input type="checkbox" class="hobby">跑步 -->
 			</div>
 		</div>
 	</div>
 </body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var targetDom = null;
+		$('.drag-list')
+		.on('dragstart','.box',function(){
+			targetDom = this;
+		})
+		$('.container')
+		.on('drop',function(){
+			$('.container').append($(targetDom).clone())
+			
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+	})
+</script>
 </html>
