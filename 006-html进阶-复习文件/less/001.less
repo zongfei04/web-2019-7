@@ -138,11 +138,27 @@ ul{
 	font-size:10px;
 }
 .box8{
-	.calc-fs(20px)
+	font-size: 20px;
 }
 
 //避免编译
-.box9{
-	font-size: ~'calc(20px+10px)';
+// .box9{
+// 	font-size: ~'calc(20px+10px)';
+// }
+
+
+//important关键字
+.box10{
+	.box3 !important;
+	font-size: 20px;
 }
-.
+/*混合参数做为属性和设置计算后的属性值
+	.set(@attr,@val){
+    @{attr}:unit(@val/10,px);
+}*/
+.setAttr(@attr,@val){
+	@{attr}:unit(@val,px);
+}
+.box11{
+	.setAttr(font-size,20)
+}
