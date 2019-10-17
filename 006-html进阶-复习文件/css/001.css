@@ -1,4 +1,95 @@
 /*我是多行注释*/
-body {
+.box1 {
+  width: 100px;
+  height: 100px;
+  color: #ff0000;
+}
+.box2 {
+  width: 100px;
+  height: 100px;
+  color: #ff0000;
+}
+.box3 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
   background-color: red;
+}
+.box4 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  background-color: red;
+  border: 6px solid #000;
+}
+.box5 {
+  width: 100px;
+  height: 100px;
+  background-color: #ff00ff;
+  border: 20px solid #000;
+  -o-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.box6 {
+  width: 100px;
+  height: 100px;
+  background-color: #ff00ff;
+  border: 20px solid #000;
+  -o-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+/*
+.trangle{
+	width:0;
+	height:0;
+	border-style: solid;
+	border-width: 50px;
+	border-color: #000 transparent transparent transparent;
+}
+*/
+.box7 {
+  border-width: 50px;
+  border-color: #000 transparent transparent transparent;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+ul {
+  width: 500px;
+  height: 500px;
+  margin: 100px auto;
+  list-style: none;
+  background-color: #ccc;
+  border: 1px solid #000;
+}
+ul li {
+  width: 500px;
+  height: 40px;
+  line-height: 40px;
+}
+ul li a {
+  float: right;
+  text-decoration: none;
+  padding-right: 20px;
+}
+ul li span {
+  float: left;
+}
+ul li:hover {
+  background-color: red;
+}
+.calc-fs {
+  font-size: 10px;
+}
+/*.box8{
+	.calc-fs(20px)
+}*/
+.box9 {
+  font-size: calc(20px+10px);
 }
