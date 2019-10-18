@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-项目属性-项目放大.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			width:1000px;
+			height: 400px;
+			border: 1px solid #000;
+			margin:50px auto;
+		}
+		.father div{
+			height:50px;
+		}
+		.box1{
+			flex-grow: 2;
+			width:100px;
+			background-color: red;
+		}
+		.box2{
+			flex-grow: 1;
+			width:200px;
+			background-color: orange;
+		}
+		.box3{
+			flex-grow: 1;
+			width: 400px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+	</div>
+</body>
+</html>

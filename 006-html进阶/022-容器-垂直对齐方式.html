@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>容器-垂直对齐方式</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			width:1000px;
+			height: 400px;
+			border: 1px solid #000;
+			margin:50px auto;
+			flex-wrap: wrap;
+
+
+			/*align-items: stretch;*/
+			/*align-items:flex-start;*/
+			/*align-items: flex-end;*/
+			/*align-items:center;*/
+			/*align-items: baseline;*/
+
+			/*align-content:stretch;*/
+			/*align-content: flex-start;*/
+			/*align-content: flex-end;*/
+			/*align-content: center;*/
+			align-content: baseline;
+
+			
+
+
+
+		}
+		.father div{
+			/*float:left;*/
+			height:50px;
+		}
+		.box1{
+			width:100px;
+			background-color: red;
+		}
+		.box2{
+			width:300px;
+			background-color: orange;
+		}
+		.box3{
+			width: 700px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+	</div>
+</body>
+</html>
