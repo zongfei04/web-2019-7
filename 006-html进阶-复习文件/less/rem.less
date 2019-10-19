@@ -1,0 +1,44 @@
+/*
+	开发网页的适配流程
+	1.制定好设置稿，以iPhone6为例，
+	2设计稿中给定的单位是像素，width = 150px，font-size = 24px
+	3.根据计算出的字体把根元素换成rem
+	1rem = 37.5px
+	4rem = 150px;
+	0.64rem = 24px;
+
+	1rem = 32px;
+	4.6875rem = 150px;
+	0.75rem = 24px
+*/
+*{
+	margin: 0;
+	padding: 0;
+}
+@fs:37.5px;
+.setAttr(@root,@val){
+	@{root}:unit(@val / @fs,rem);
+}
+.setAttr(@root,@val,@val1){
+	@{root}:unit(@val / @fs,rem) unit(@val1 / @fs,rem);
+}
+.setAttr(@root,@val,@val1,@val2){
+	@{root}:unit(@val / @fs,rem) unit(@val1 / @fs,rem) unit(@val2 / @fs,rem);
+}
+.setAttr(@root,@val,@val1,@val2,@val3){
+	@{root}:unit(@val / @fs,rem) unit(@val1 / @fs,rem) unit(@val2 / @fs,rem) unit(@val3 / @fs,rem);
+}
+img{
+	float: left;
+	// width: 4rem;
+	// 
+	.setAttr(width,150px);
+	.setAttr(margin,10);
+	 .setAttr(margin,10,20);
+	 .setAttr(margin,10,20,30);
+	.setAttr(margin,10,20,30,40);
+}
+p{
+	// font-size: 0.64rem;
+	.setAttr(font-size,24)
+}
