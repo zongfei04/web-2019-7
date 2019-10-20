@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-let定义变量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	var a = 1;
+	var a = 2;
+	console.log(window)
+	console.log(a);
+	console.log(window.a);
+	
+	// let a = 1;
+	let a = 2;
+	console.log(a);
+	console.log(window.a);*/
+
+	// let定义的变量不会声明提升，var定义的变量会发生声明变量的提升
+	/*console.log('var',a)
+	var a = 1
+
+	console.log('let',b);
+	let b = 2;*/
+	// 块级作用域
+	/*if(true){
+		var a = 1;
+	}
+	console.log('var',a);
+	if(true){
+		let b = 2;
+	}
+	console.log('let',b)*/
+	/*function show(){
+		var a = 2;
+		let b = 2;
+		console.log('var',a);
+		console.log('let',b);
+		function fn(){
+			console.log('var',a);
+			console.log('let',b);
+		}
+		fn()
+	}
+	show();*/
+
+	for(var i = 0;i<5;i++){
+		console.log(i);
+	}
+
+
+
+</script>
+</html>

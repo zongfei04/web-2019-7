@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-栅格参数-原理.html</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.css"> -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.row{
+			margin-left: -15px;
+			margin-right: -15px;
+
+		}
+		.row .col-md-1{
+			padding-right: 15px;
+			padding-left: 15px;
+			box-sizing: border-box;
+		}
+		@media screen and (min-width: 920px){
+			.row .col-md-1{
+				float: left;
+			}
+			.col-md-1{
+				width:8.33333%;
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<div class="row">
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	  <div class="col-md-1">.col-md-1</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-8"></div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+</html>

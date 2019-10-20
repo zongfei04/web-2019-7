@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-结构解析-对象解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*let obj = {
+		name:'Bob',
+		age:18
+	}
+	let {name:name1,age:age1} = obj
+	console.log(name1);
+	console.log(age1);*/
+
+	/*let obj = {
+		name:'Bob',
+		age:18
+	}
+	let {name,age} = obj
+	console.log(name);
+	console.log(age);*/
+
+	let obj = {
+		name:'Bob',
+		age:18
+	}
+	let {name='Leo',age,sex='male'} = obj
+	console.log(name);
+	console.log(age);
+	console.log(sex);
+</script>
+</html>
