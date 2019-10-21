@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-const定义常量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// const PI = 3.115926;
+	// 对于复杂数据来说常量指向数据保存的地址,const保证的是这个地址不变,但地址指向的数据是可以修改的
+	/*const OBJ = {
+		name:'Bob',
+		age:18
+	}
+	OBJ = {
+		name:'Leo',
+		age:19
+	}
+	console.log(obj);//错误
+	const OBJ = {
+		name:'Bob',
+		age:18
+	}
+	OBJ.name = 'Leo';
+	console.log(OBJ);//正确*/
+
+	//const定义的常量在const命令所在的代码块内有效
+	/*if(1){
+		const PI = 3.1415926;
+		console.log(PI);//正确
+	}
+	console.log(PI)//错误*/
+
+	//const定义的常量不会声明提升
+	console.log(b);
+	const b = 23;
+</script>
+</html>

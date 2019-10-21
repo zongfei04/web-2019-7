@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-结构解析-数组解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	let a = 1;
+	let b = 2;
+	let c = 3;
+	let d = 4;
+	console.log(a,b,c,d);*/
+
+	//数组解析：按照对应位置，把等号右边的值赋给等号左边的变量，数组可以嵌套
+	/*let [a,b,c,d] = [1,2,3,4];
+	console.log(a,b,c,d);
+	 //如果结构不成功，值就为undefined
+	let [a,[b,c],d] = [1,[2],3];
+	console.log(a,b,c,d);*/
+
+	//可以在等号左边数组中用等号设置默认值，当等号左边数组中对应的右边的位置的值是undefined或者是没有值时，默认值才会生效，否则取右边的值
+	/*let [a=111,b=222,c=333] = [1,null,2];
+	console.log(a,b,c)*/
+
+	//如果等号右边的不是数组，会报错
+	let [a,b,c] = [1,2,3]
+	console.log(a,b,c)
+
+
+</script>
+</html>
