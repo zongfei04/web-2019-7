@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-数组的扩展运算.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	let arr = [1,2,3,4];
+	console.log(arr);
+	console.log(...arr);
+	*/
+
+	/*
+	let arr = [11,22,33]
+	function sum(n1,n2,n3){
+		console.log(n1+n2+n3)
+
+	}
+	sum(...arr);
+	*/
+
+	/*
+	function sum(...arr){
+		console.log(arr);
+		let result = 0;
+		for(let i = 0;i<arr.length;i++){
+			result+=arr[i]
+		}
+		console.log(result);
+	}
+	sum(11,22,33)
+	*/
+
+	/*
+	let arr = [11,22,33,4,23,34,53,24];
+	// console.log(Math.max.apply(null,arr));
+	console.log(Math.max(...arr));
+	*/
+
+	var obj1 = {name:'Tom',age:18,friend:{name:'Leo',age:40}};
+	var obj2 = {...obj1};
+	obj2.name = "Amy";
+	obj2.friend.name = 'Mike';
+	console.log(obj1,obj2);
+</script>
+</html>
