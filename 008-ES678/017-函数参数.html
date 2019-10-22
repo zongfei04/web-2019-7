@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-函数参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function fn(name,age){
+		var name = name || 'tom';
+		var age = age || 18
+		console.log(name,age)
+	}
+	fn();
+	*/
+	/*
+	function fn(name='tom',age){
+		console.log(name,age)
+	}
+	fn(18)
+	*/
+	let i =1;
+	function fn(++i){
+		console.log(i);
+	}
+	fn();
+</script>
+</html>

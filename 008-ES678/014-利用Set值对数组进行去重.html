@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-利用Set值对数组进行去重.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [11,22,33,444,11,22,33];
+	function uniqueArray1(arr){
+		let result = [];
+		for(let i = 0;i<arr.length;i++){
+			if(result.indexOf(arr[i])==-1){
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+	console.log(uniqueArray1(arr));
+
+
+	/*
+	let s = new Set(arr);
+	// console.log(arr);
+	// console.log(s)
+	let arr1 = [...s];
+	console.log(arr1);
+	*/
+	
+</script>
+</html>

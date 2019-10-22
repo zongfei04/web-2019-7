@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-set的遍历方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [11,22,33];
+	let s = new Set(arr);
+	//返回键名的遍历器
+	for(key of s.keys()){
+		console.log('key::',key);
+	}
+
+	for(value of s.values()){
+		console.log('value:::',value);
+	}
+
+	for(entry of s.entries()){
+		console.log('entry::',entry);
+	}
+
+	s.forEach(function(value,key){
+		console.log('value=',value,'key='+key)
+	})
+</script>
+</html>
