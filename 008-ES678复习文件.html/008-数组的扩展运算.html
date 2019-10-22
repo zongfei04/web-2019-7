@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-数组的扩展运算.html</title>
+</head>
+<body>
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>5</span>
+	<span>6</span>
+	<span>7</span>
+	<span>8</span>
+	<span>9</span>
+	<span>10</span>
+</body>
+<script>
+	//数组的扩展运算就是将一个数组转换为用逗号分割的参数序列
+	/*let arr = [11,22,333];
+	console.log(arr);
+	console.log(...arr);*/
+
+	//函数调用时把数组转换为参数列表
+	/*let arr = [11,22,33]
+	function sum(n1,n2,n3){
+		console.log(n1+n2+n3);
+		console.log(n3);
+	}
+	sum(...arr)*/
+
+	//函数定义时把参数列表转换为数组
+	/*function total(...arr){
+		let result = 0;
+		for(let i = 0;i<arr.length;i++){
+			result+=arr[i];
+		}
+		console.log(result);
+	}
+	total(11,22,33)*/
+
+	//求数组的最大值
+	// let arr = [11,22,34,53,35,90];
+	/*
+	// console.log(Math.max(13,23,45,54,46,64))
+	// console.log(Math.max.apply(null,arr));
+	console.log(Math.max(...arr));
+	*/
+
+	//深拷贝数组
+	/*let arr = [11,22,33,44,55,66];
+	arr1 = arr;
+	arr1.push(111);
+	console.log(arr);
+	console.log(arr1);//浅拷贝*/
+	// let arr = [11,22,33,44,55,66];
+	/*var arr2 = [];
+	for(let i = 0;i<arr.length;i++){
+		arr2.push(arr[i]);
+	}
+	arr2.push(111);
+	console.log(arr);
+	console.log(arr2);
+
+	let arr2 = arr.concat();
+	arr2.push(111);
+	console.log(arr);
+	console.log(arr2);
+
+	let arr2 = arr.slice();
+	arr2.push(111);
+	console.log(arr);
+	console.log(arr2);
+
+	let arr2 = [...arr];
+	arr2.push(111);
+	console.log(arr);
+	console.log(arr2)*/
+
+	//数组的扩展运算把伪数组转换为真数组
+	var aSpan = document.getElementsByTagName('span');
+	console.log(aSpan);
+	var arrAspan = [...aSpan];
+	console.log(arrAspan);
+
+</script>
+</html>

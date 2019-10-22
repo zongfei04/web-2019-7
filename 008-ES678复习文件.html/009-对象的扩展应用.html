@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-对象的扩展应用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//对象的扩展运算符：用于取出参数对象的所有可遍历属性，拷贝到当前对象中
+	let obj = {
+		name:'Bob',
+		age:18,
+		friend:{name:'Peter',age:20},
+		pet:['dog','cat']
+	}
+	/*console.log(obj);
+	console.log({...obj});*/
+
+	// 直接赋值 浅拷贝
+	
+	let obj2 = obj;
+	obj2.name='Anmy';
+	obj2.friend.name = 'Tom';
+	obj2.pet.push('tiger');
+	console.log('obj:::',obj);
+	console.log('obj2:::',obj2);
+	/*
+	//不完全拷贝
+	let obj2 = {...obj};
+	obj2.name='Anmy';
+	obj2.friend.name = 'Tom';
+	obj2.pet.push('tiger');
+	console.log('obj:::',obj);
+	console.log('obj2:::',obj2);*/
+
+</script>
+</html>
