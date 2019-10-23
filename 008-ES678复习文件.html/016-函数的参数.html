@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-函数的参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function show(name,age = 18){
+		// var name = name || 'Bob';
+		// var age = age || 18
+		console.log(name,age);
+	}
+	show('Tom');
+	
+	let i = 1;
+	function show(x = ++i){
+		console.log(x)
+	}
+	show();
+	i = 5;
+	show();*/
+
+	function ajax(url,{method='GET',data='id=001'} = {}){
+		console.log(url,method,data);
+	}
+	ajax('http://www.kuazhu.com',{method:'POST',data:'id=002'})
+
+	function show(...arr){
+		console.log(arr)
+	}
+	show(11,22,33)
+</script>
+</html>

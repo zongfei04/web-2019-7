@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-symbol的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Symbol值通过symbol函数生成
+	/*let s = Symbol();
+	console.log(s);*/
+
+	//Symbol函数可以接受一个字符串作为参数，表示对Symbol实例的描述
+	let s1 = Symbol('tom');
+	let s2 = Symbol('tom');
+	console.log(s1);
+	console.log(s2);
+	console.log(s2 == s1);
+	var obj = {
+		name:'Bob'
+	}
+	/*
+	obj.s1 = 'hello';
+	obj.s2 = 'world';
+	console.log(obj)
+	*/
+	obj[s1] = 'hello';
+	obj[s2] = 'world';
+	console.log(obj);
+	/*console.log(obj[s1]);
+	console.log(obj[s2]);
+	// for(let i = 0;i<obj.length;i++){
+	// 	console.log(obj[i]);
+	// }
+	for(key in obj){
+		console.log(key)
+	}*/
+	console.log(Reflect.ownKeys(obj))
+	var keys = Reflect.ownKeys(obj);
+	for(var i = 0;i<keys.length;i++){
+		console.log(keys[i]);
+		console.log(obj[keys[i]])
+	}
+
+	
+
+</script>
+</html>

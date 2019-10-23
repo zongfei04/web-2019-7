@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-利用set值去重数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [11,22,33,44,11,22,33];
+	/*
+	function uniqueArrar1(arr){
+		let result = [];
+		for(let i = 0;i<arr.length;i++){
+			if(result.indexOf(arr[i]) == -1){
+				result.push(arr[i]);
+			}
+		}
+		return result
+	}
+	console.log(uniqueArrar1(arr));
+	
+	function uniqueArrar2(arr){
+		let obj = {}
+		let result = [];
+		for(var i = 0;i<arr.length;i++){
+			obj[arr[i]] = ''
+		}
+		for(key in obj){
+			result.push(key*1);
+		}
+		return result
+	}
+	console.log(uniqueArrar2(arr));*/
+
+	let s = new Set(arr);
+	console.log(s);
+	let arr2 = [...s];
+	console.log(arr2);
+</script>
+</html>

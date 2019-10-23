@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-表单标签.html</title>
+</head>
+<body>
+	<form action="http://www.kuazhu.com" method="GET">
+		<!-- 明文输入框 -->
+		<input type="text" name="username" autocomplete="off" >
+		<!-- 暗文输入框 -->
+		<input type="password" name="password">
+		<input type="submit">
+		<p>
+			<input type="radio" name="sex" >男
+			<input type="radio" name="sex">女
+		</p>
+		<p>
+			<input type="checkbox" >篮球
+			<input type="checkbox" >足球
+			<input type="checkbox">跑步
+		</p>
+		<p>
+			<input type="button" value="按钮">
+		</p>
+		<p><input type="image" src="../003-js/images/2.jpg"></p>
+		<p>
+			<input type="reset">
+		</p>
+		<!-- 隐藏 -->
+		<input type="hidden" name="sec" value="1234">
+		<p>
+			上传文件：<input type="file" name="file">
+		</p>
+		<p>
+			邮箱：<input type="email" name="email" autocomplete="off">
+		</p>
+		<p>
+			数字：<input type="number" name="num" placeholder="请输入数字">
+		</p>
+		<p>
+			日历：<input type="date" name="date">
+		</p>
+		<p>
+			取色版：<input type="color">
+		</p>
+
+	</form>
+</body>
+</html>

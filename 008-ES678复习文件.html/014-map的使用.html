@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-map的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//类似于字符串，但键的范围不局限于字符串，各种类型的值都可以当做键的数据结构
+	//map对象的size属性返回map实例的键的值对的总数
+	//map对象的生成
+	let map = new Map();
+	// console.log(map)
+	map.set('name','Tom')
+	let obj1 = {name:'Bob'};
+	let obj2 = {age:18};
+	map.set(obj1,'hello');
+	map.set(obj2,'world');
+	console.log(map);
+	/*
+	console.log(map.get('obj'));
+	
+	//console.log(map.delete(obj2));
+	
+	console.log(map.clear());
+
+	console.log(map);*/
+	//map对象的遍历方法
+	//返回键名
+	for(key of map.keys()){
+		console.log('key:::',key);
+	}
+	//返回键值
+	for(value of map.values()){
+		console.log('value::',value);
+	}
+	//返回键名和键值
+	for(entry of map.entries()){
+		console.log('entry:::',entry);
+	}
+	//使用回调函数遍历
+	map.forEach(function(value,key){
+		console.log('value='+value,'key=',key);
+	})
+</script>
+</html>

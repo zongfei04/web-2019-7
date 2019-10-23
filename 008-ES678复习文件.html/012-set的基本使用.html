@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-set的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//遍历器是一种接口，实现了该接口的数据结构就可以完成遍历操作
+	//遍历器主要供for...of循环来使用，也就是说实现了遍历接口的数据类型都可以用for...of来遍历数据
+	//set类似于数组，但值唯一的数据结构，set对象的size属性返回set实例的值的总数
+	//set对象的生成
+	/*
+	let s = new Set();
+	console.log(s.size);*/
+	let arr = [11,22,33];
+	let s = new Set(arr);
+	// console.log(s);
+	//console.log(s.size);
+	s.add(44);
+	// console.log(s.delete(55));
+	// console.log(s.has(55));
+	/*console.log(s.clear());
+	console.log(s);*/
+
+
+	//set的遍历方法
+	//获取键名
+	for(key of s.keys()){
+		console.log('keys:::',key);
+	}
+	//获取键值
+	for(value of s.values()){
+		console.log('values:::',value);
+	}
+	// 获取键名和键值
+	for(entry of s.entries()){
+		console.log('entry:::',entry);
+	}
+	//使用回调函数遍历
+	s.forEach(function(value,key){
+		console.log('value='+value,'key='+key);
+	})
+</script>
+</html>
