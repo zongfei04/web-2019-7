@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-promise-all方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var p1= Promise.resolve('ok1');
+	var p2= Promise.resolve('ok2');
+	var p3= Promise.resolve('ok3');
+	var p4= Promise.resolve('ok4');
+	var p5 = Promise.reject('err1');
+
+	var P1 = Promise.all([p1,p2,p3,p4,p5]);
+	console.log(P1);
+
+</script>
+</html>

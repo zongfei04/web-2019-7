@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-promise的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let promise = new Promise((resolve,reject) =>{
+		console.log('do now...');
+		setTimeout(function(){
+			// resolve('get data ok')
+			reject('get data err');
+		},100)
+	});
+	console.log(promise);
+	promise.
+	then(function(data){
+		console.log('after:::',promise);
+		console.log(data);
+	},function(data){
+		console.log('after:::',promise);
+		console.log(data);
+	})
+
+</script>
+</html>

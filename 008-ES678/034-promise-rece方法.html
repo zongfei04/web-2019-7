@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-promise-rece方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function receSet(delay){
+		return new Promise((resolve,reject)=>{
+			setTimeout(function(){
+				resolve('do '+delay+' success')
+			},100)
+		})
+	}
+	var p1 = receSet('700');
+	var p2 = receSet('500');
+	var p3 = receSet('900');
+	Promise.race([p1,p2,p3])
+	.then((data)=>{
+		console.log(data);
+	})
+
+</script>
+</html>

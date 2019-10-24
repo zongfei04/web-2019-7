@@ -11,13 +11,13 @@
 <script>
 	//异步程序 ajax 定时器，dom事件
 	$.get('https://api.github.com/users/zongfei04',function(data){
-		// console.log(data);
-		$.get(data.followers_url,function(data){
+		console.log(data);
+		$.get(data.subscriptions_url,function(data){
 			console.log(data)
 		})
 	})
 	console.log('ajax done ...')
-
+	/*
 	//定时器
 	setTimeout(function(){
 		console.log('time...')
@@ -34,8 +34,8 @@
 	}
 	console.log('img done...')
 
-	img.src = '../003-js/images/21.jpg'
-
+	img.src = '../003-js/images/2.jpg'
+	*/
 
 </script>
 </html>
