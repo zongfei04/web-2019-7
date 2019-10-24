@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-箭头函数进行排序.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [11,22,33,1,2,3,5,6,78];
+	/*
+	let arr2 = arr.sort(function(n1,n2){
+		return n1 - n2
+	});
+	*/
+	//利用箭头函数进行排序
+	let arr2 = arr.sort((n1,n2) =>{
+		return n2-n1
+	})
+	console.log('arr:::',arr);
+	console.log('arr2::',arr2);
+	console.log(arr == arr2);
+</script>
+</html>

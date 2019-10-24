@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-异步程序的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	//异步程序 ajax 定时器，dom事件
+	$.get('https://api.github.com/users/zongfei04',function(data){
+		// console.log(data);
+		$.get(data.followers_url,function(data){
+			console.log(data)
+		})
+	})
+	console.log('ajax done ...')
+
+	//定时器
+	setTimeout(function(){
+		console.log('time...')
+	},0)
+	console.log('time done...')
+
+	//dom事件
+	var img = new Image();
+	img.onload = function(){
+		console.log('img sucess')
+	}
+	img.onerror = function(){
+		console.log('img error');
+	}
+	console.log('img done...')
+
+	img.src = '../003-js/images/21.jpg'
+
+
+</script>
+</html>

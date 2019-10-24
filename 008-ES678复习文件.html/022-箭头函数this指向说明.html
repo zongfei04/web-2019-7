@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-箭头函数this指向说明补充.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var id = 33;
+	function Show(id){
+		//var Show = {};
+		//this =>Show;
+		this.id = id;
+		console.log(this);
+		setTimeout(function(){
+			console.log(this);
+			console.log(this.id)
+		},100)
+		//return this;
+	}
+	/*
+	var S1 = new Show(11);
+	console.log(S1);*/
+	var S2 = Show(11);
+	console.log('111',S2);
+</script>
+</html>
