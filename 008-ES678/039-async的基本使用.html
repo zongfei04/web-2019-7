@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-async的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	async function fn(){
+		return 'ok';
+	}
+	var p1 = fn();
+	p1
+	.then((data)=>{
+		console.log(data);
+	})
+	*/
+	var p2;
+	async function fn(){
+		p2 = new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				resolve('data is ok')
+			})
+		})
+		return p2;
+	}
+	var p1 = fn();
+	console.log(p1);
+	console.log(p2);
+	console.log(p1 == p2);
+	p1
+	.then((data)=>{
+		console.log(data);
+	})
+	p2
+	.then((data)=>{
+		console.log(data)
+	})
+</script>
+</html>

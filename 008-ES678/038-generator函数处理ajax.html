@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-generator函数处理ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	function getAjaxPromise(url){
+		return new Promise((resolve,reject)=>{
+			$.ajax({
+				url:url,
+				success:(data)=>{
+					resolve(data)
+				},
+				error:(jqXHR,statusMsg)=>{
+					// reject(statusMsg);
+					reject(statusMsg)
+				}
+			})
+		})
+	}
+	function * gen(url){
+		yield getAjaxPromise(url)
+	}
+	var g = gen('https://api.github.com/users/zongfei04');
+	g.next().value
+	.then((data)=>{
+		console.log(data);        
+	})
+</script>
+</html>

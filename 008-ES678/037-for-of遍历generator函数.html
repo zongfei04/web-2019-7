@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-for-of遍历generator函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * show(){
+		yield 1;
+		yield 2;
+		yield 3;
+		yield 4;
+		yield 5;
+	}
+	var s = show();
+	console.log(s);
+	for(key of s){
+		console.log(key)
+	}
+</script>
+</html>

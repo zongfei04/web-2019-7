@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-Generator函数的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * show(){
+		console.log('start');
+		yield 'data1';
+		console.log('continue');
+		yield 'data2';
+		console.log('end');
+		return 'data3'
+	}
+	// show调用后函数并不会执行，会返回一个遍历器，调用遍历器的next方法函数才会执行。
+	var s = show();
+	// console.log(s);
+	
+	console.log(s.next());
+	console.log(s.next());
+	console.log(s.next());
+	
+	// show().next();
+</script>
+</html>
