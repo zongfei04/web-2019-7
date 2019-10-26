@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-next方法的参数使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//next方法可以带一个参数，该参数就会被当做上一个yield表达式的返回值，由于next参数表单上一次yield表达式的返回值，所以第一次使用next方法时，传递参数是无效的
+	function * show(x){
+		console.log('start x=',x);
+		// const y = yield (x+10)
+		y = yield + (x+10)
+		console.log('y=',y);
+		const z = yield (y+20);
+		console.log('z=',z);
+		return x+y+z;
+	}
+	var s = show(5);
+	console.log(s.next());
+	console.log(s.next(10));
+	console.log(s.next());
+</script>
+</html>
