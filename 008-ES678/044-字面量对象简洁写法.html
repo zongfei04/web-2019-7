@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-字面量对象简洁写法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var username = 'tom';
+	var age = 18;
+	var obj = {
+		username,
+		age,
+		sayHello(){
+			console.log('hello')
+		},
+		sayHi(){
+			console.log('hi');
+		}
+	}
+	console.log(obj);
+	obj.sayHello();
+	obj.sayHi()
+</script>
+</html>

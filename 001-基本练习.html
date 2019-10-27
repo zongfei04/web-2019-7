@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-基本练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * show(){
+		yield 'aaaa';
+		yield 'bbbb';
+		yield 'cccc';
+		yield 'dddd';
+		return 'hello world';
+	}
+	var s = show();
+	s.next();
+	s.next();
+	s.next();
+	s.next();
+	var result = s.next();
+	console.log(result.value);
+</script>
+</html>

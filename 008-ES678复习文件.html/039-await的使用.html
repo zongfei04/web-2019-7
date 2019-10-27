@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-await的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	async function fn(){
+		console.log('aaa')
+	}
+	console.log(fn());
+	*/
+	/*
+	async function fn(){
+		let data1 = await 'data ok';
+		console.log('data1:::',data1);
+		let data2 = await 'data2 ok';
+		console.log('data2::::',data2);
+		return data1
+	}
+	var f = fn();
+	f.then(data=>{
+		console.log(data);
+	})
+	*/
+	/*
+	await 只能放在await中使用
+	function fn(){
+		let data1 = await 'data ok';
+		console.log('data1:::',data1);
+		let data2 = await 'data2 ok';
+		console.log('data2::::',data2);
+		return data1
+	}
+	var f = fn();
+	f.then(data=>{
+		console.log(data);
+	})
+	*/
+	var promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			reject('get promise err');
+		},100)
+	})
+	async function fn(){
+		try{
+			var data1 = await promise;
+			console.log('data:::',data1);
+			console.log('do something ok');
+		}
+		catch(err){
+			console.log(err);
+		}
+		return promise;
+	}
+	var f = fn();
+	f.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err);
+	})
+
+
+</script>
+</html>
