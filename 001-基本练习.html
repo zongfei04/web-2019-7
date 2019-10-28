@@ -8,19 +8,18 @@
 	
 </body>
 <script>
-	function * show(){
-		yield 'aaaa';
-		yield 'bbbb';
-		yield 'cccc';
-		yield 'dddd';
-		return 'hello world';
+	/*
+	function show2(url,{method="GET",body="name=Tom"} = {}){
+		console.log(method,body);
 	}
-	var s = show();
-	s.next();
-	s.next();
-	s.next();
-	s.next();
-	var result = s.next();
-	console.log(result.value);
+	show2({method:'POST',body:"name=Leo"});
+	*/
+	var a={},
+		b={key:'b'},
+		c={key:'c'};
+	a[b]=123;
+	a[c]=456;
+	console.log(a[b]);
+	console.log(a[c]);
 </script>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-数组.html</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+</body>
+<script>
+	//将伪数组转换为真数组
+	/*
+	var obj = {
+		0:'tom',
+		1:'10',
+		length:2
+	}
+	console.log(obj);
+	// console.log([...obj]);//错误
+	console.log(Array.from(obj));
+	var aDiv = document.getElementsByTagName('div');
+	console.log(aDiv)
+	console.log([...aDiv])
+	console.log(Array.from(aDiv))
+	*/
+
+	//用于找到符合条件的第一个数组成员
+	var arr = [11,22,33,44,55,66];
+	var result = arr.find(function(n){
+		return n>100
+	})
+	console.log(result)
+
+
+</script>
+</html>

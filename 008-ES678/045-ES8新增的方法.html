@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>045-ES8新增的方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var obj = {
+		name:'tom',
+		age:18,
+		sex:'male'
+	}
+	//添加一个不可遍历的属性
+	Object.defineProperty(obj,'legs',
+	{
+		value:2,
+		enumerable:true
+	})
+	console.log(obj);
+	console.log(Object.keys(obj));
+	console.log('entries:::',Object.entries(obj));
+	console.log('value:::',Object.values(obj));
+	console.log('getOwnPropertyDescriptors',Object.getOwnPropertyDescriptors(obj))
+</script>
+</html>
