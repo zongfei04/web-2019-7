@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//将伪数组转为真数组 Array.from()
+	var obj = {
+		0:'tom',
+		1:18,
+		length:2
+	}
+	console.log(Array.from(obj))
+
+	//找出第一个符合条件的数字成员
+	
+	var arr = [11,22,33,44,56];
+	/*var result = arr.find(function(n){
+		return n < 10
+
+	})
+	console.log(result);
+	*/
+
+	//找出第一个符合条件的成员的位置下标
+	var result = arr.findIndex(function(n){
+		return n > 40
+	})
+	console.log(result)
+
+	//搜索某个值是否在数组中
+	console.log(arr.includes(22,2))
+</script>
+</html>

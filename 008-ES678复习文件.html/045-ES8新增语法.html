@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>045-ES8新增语法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const obj = {
+		name:'tom',
+		age:18,
+		sex:'male'
+	}
+	Object.defineProperty(obj,'legs',{
+		value:2,
+		enumerable:true
+	})
+	// console.log(obj);
+	//遍历键名
+	console.log('keys:::',Object.keys(obj));
+	//遍历键值对
+	console.log('entry:::',Object.entries(obj));
+	//遍历键值
+	console.log('value:::',Object.values(obj));
+	//返回自身属性Object.getOwnPropertyDescriptors()
+	console.log('getOwnPropertyDescriptot',Object.getOwnPropertyDescriptors(obj));
+	//对象的合并
+	const DEFAULTS = {
+		mode:'fade',
+		ja:false
+	}
+	console.log(Object.assign({},DEFAULTS,obj));
+	console.log(DEFAULTS)
+	console.log(Object.assign([11,22,33,44],[22,44,55]));
+
+	console.log(NaN === NaN);
+	console.log(2 === '2');
+
+	console.log(Object.is(NaN,NaN))
+	console.log(Object.is(+0,-0))
+	console.log(+0 == -0)
+</script>
+</html>
