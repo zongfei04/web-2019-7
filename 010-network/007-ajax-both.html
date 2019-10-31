@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-ajax-both.html</title>
+</head>
+<body>
+	<!-- 封装ajax函数 -->
+	<button id="btn">请求数据</button>
+</body>
+<script>
+
+	function ajax(method,url,data,fnSucc,fnErr){
+		if(method.toUpperCase() == 'GET'){
+			if(data){
+				url = url +'?' +data;
+			}
+			//1.创建一个ajax对象(买一个电话)
+			var oAjax = new XMLHttpRequest();
+			//2.请求连接（拨号）
+			 // oAjax.open('GET','http://127.0.0.1:3000/004-data.json',true);
+			 // oAjax.open(method,'http://127.0.0.1:3000/?name=tom',true);
+			  oAjax.open(method,url,true);
+
+			//设置请求头
+			oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+
+			//3.发送请求
+			oAjax.send();
+		}
+		else if(method.toUpperCase() == 'POST'){
+			//1.创建一个ajax对象(买一个电话)
+			var oAjax = new XMLHttpRequest();
+			//2.请求连接（拨号）
+			  oAjax.open(method,url,true);
+			//设置请求头
+			oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+			//3.发送请求
+			oAjax.send(data);
+		}
+		
+		//服务器接收并且响应
+		oAjax.onreadystatechange = function(){
+			 // console.log(oAjax.readyState);
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					var jsobject = JSON.parse(oAjax.responseText);
+					// console.log(jsobject)
+					typeof fnSucc == 'function' && fnSucc(jsobject)
+
+				}
+				else{
+					typeof fnErr == 'function' && fnErr(oAjax.status)
+				}
+			}
+		}
+	}
+
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		/*
+		//GET方法并且有参数
+		ajax('GET',
+			'http://127.0.0.1:3000/',
+			'name=tom',
+			function(data){
+				console.log(data)
+			},
+			function(err){
+				console.log('data is faile,stateCode:' + err)
+			})
+		*/
+		/*
+		GET方法传入的是文件
+		ajax('GET',
+			'http://127.0.0.1:3000/004-data.json',
+			'',
+			function(data){
+				console.log(data)
+			},
+			function(err){
+				console.log('data is faile,stateCode:' + err)
+			})
+		*/
+		//POST方法
+		ajax('POST',
+			'http://127.0.0.1:3000/',
+			'{"name":"leo","age":20}',
+			function(data){
+				console.log(data)
+			},
+			function(err){
+				console.log('data is faile,stateCode:' + err)
+			})
+	}
+</script>
+</html>
