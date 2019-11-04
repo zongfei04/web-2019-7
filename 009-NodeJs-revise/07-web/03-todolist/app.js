@@ -6,8 +6,18 @@ const fs = require('fs');
 
 const mime = require('./mime.json')
 
+const url = require('url');
+
 const server = http.createServer((req,res)=>{
-	console.log(req.url)
+	// console.log(req.url)
+
+	//路由：根据不同的请求地址处理不同的逻辑
+	const urlname = url.parse(req.url,true).pathname;
+	console.log(urlname);
+
+
+
+	//处理静态资源
 	const filePath = __dirname +'/static/'+ req.url;
 	// console.log(filePath)
 	//用于绝对路径的设置
@@ -28,7 +38,6 @@ const server = http.createServer((req,res)=>{
 			// console.log(pathexname)
 			//根据文档的后缀名决定不同的文档类型
 			const typeName = mime[pathexname];
-			console.log(typeName)
 			res.setHeader('Content-type',typeName+';charset="utf-8"');
 			res.end(data);
 		}
