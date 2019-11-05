@@ -10,9 +10,11 @@
 		<h1>Todulist</h1>
 		<input type="text" class="todo-input">
 		<ul class="todo-list">
-			<li class="todo-item">学习</li>
-			<li class="todo-item">睡觉</li>
-			<li class="todo-item">打豆豆</li>
+			{% for item in data %}
+			<li class="todo-item">{{item[task]}}</li>
+			<!-- <li class="todo-item">睡觉</li>
+			<li class="todo-item">吃饭</li> -->
+			{% endfor %}
 		</ul>
 	</div>
 </body>
