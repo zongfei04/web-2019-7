@@ -8,8 +8,18 @@
 				url:'add',
 				type:'post',
 				dataType:'json',
-				success:function(data){
-					console.log(data)
+				data:{
+					task:$input.val()
+				},
+				success:function(result){
+					var data = result.data;
+					if(result.code == 0){
+						var $dom = $(`<li class="todo-item">${data.task}</li>`)
+						$('.todo-list').append($dom);
+						$input.val('')
+					}
+	
+					//根据后台返回数据做出不同处理
 				},
 				error:function(err){
 					console.log(err)
