@@ -8,7 +8,7 @@ const mime = require('./mime.json')
 
 const url = require('url');
 
-const { get,add } = require('./model/item.js')
+const { get,add,del } = require('./model/item.js')
 
 const swig = require('swig')
 
@@ -18,8 +18,6 @@ const server = http.createServer((req,res)=>{
 	// console.log(req.url)
 	//处理静态资源
 	const pathname = url.parse(req.url,true).pathname
-	
-
 
 	//路由：根据不同的请求地址处理不同的逻辑
 
@@ -56,6 +54,7 @@ const server = http.createServer((req,res)=>{
 			// console.log(query)
 			add(query.task)
 			.then(data=>{
+				//3.如果成功将任务对象返回到前端
 				res.end(JSON.stringify({
 					code:0,
 					message:'添加数据成功',
@@ -70,12 +69,24 @@ const server = http.createServer((req,res)=>{
 				}))
 			})
 		})
-		
-		//3.如果成功将任务对象返回到前端
-
 	}
 	else if(pathname == '/delete'){//请求删除数据
+		const id = url.parse(req.url,true).query.id
+		del(id)
+		.then(data=>{
+			res.end(JSON.stringify({
+				code:0,
+				message:'删除数据成功'
+			}))
+		})
+		.catch(err=>{
+			res.end(JSON.stringify({
+				code:1,
+				message:'删除数据失败'
+			}))
+		})
 
+		
 	}
 	else{//处理静态资源
 		const filePath = __dirname +'/static/'+ req.url;
