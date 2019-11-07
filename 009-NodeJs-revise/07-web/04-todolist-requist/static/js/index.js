@@ -39,7 +39,7 @@
 				$this.remove()
 			},
 			error:function(message){
-				console.log(data.message)
+				console.log(message)
 			}
 		})
 		
