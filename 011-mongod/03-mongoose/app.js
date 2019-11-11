@@ -42,5 +42,4 @@ db.once('open', function() {
   		console.log(docs)
   	}
   })
-
 });
