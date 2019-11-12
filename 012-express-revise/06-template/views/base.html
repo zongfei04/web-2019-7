@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+</head>
+<body>
+	<h1>hello world I am {{name}}</h1>
+	<p>
+		{% if name == "tom"%}
+		我是tom
+		{% else %}
+		我是bob
+		{%endif%}
+	</p>
+	<ul>
+		{% for val in names %}
+		<li>{{val}} </li>
+		{%endfor%}
+	</ul>
+</body>
+</html>
