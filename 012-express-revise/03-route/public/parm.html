@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>base.html</title>
+</head>
+<body>
+	<h1>I am test</h1>
+	<button id="get1">get1</button>
+	<button id="get2">get2</button>
+</body>
+<script src="jquery-1.12.4.min.js"></script>
+<script>
+	//get
+	$('#get1').on('click',function(){
+		$.ajax({
+			url:'/',
+			type:'get',
+			data:{
+				name:"tom",
+				age:18
+			},
+			success:function(data){
+				console.log(data)
+			}
+		})
+	})
+	//post
+	$('#get2').on('click',function(){
+		$.ajax({
+			url:'/user/123/book/456',
+			type:'get',
+			success:function(data){
+				console.log(data)
+			}
+		})
+	})
+</script>
+</html>
