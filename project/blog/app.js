@@ -10,8 +10,6 @@ const mongoose = require('mongoose')
 //处理静态文件
 app.use(express.static('public'))
 
-
-
 //1.连接数据库
 mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true,useUnifiedTopology: true })
 //获取db对象
