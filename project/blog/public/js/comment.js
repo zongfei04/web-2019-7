@@ -110,9 +110,12 @@
 			})
 			.done(function(data){
 				 if(data.code == 0){
+				 	/*
 				 	$userInfo.show()
 				 	$login.hide()
 				 	$userInfo.find('span').html(data.user.username)
+				 	*/
+				 	window.location.reload()
 				 }
 				 else{
 				 	 textDanger.html(data.message)
@@ -122,6 +125,21 @@
 				 textDanger.html('请求失败，请稍后再试')
 			})
 		}		
+	})
+	//3.设置退出
+	$('#logout').on('click',function(){
+		$.ajax({
+			url:'/user/logout',
+			type:'GET'
+		})
+		.done(function(data){
+			if(data.code == 0){
+				window.location.href = '/'
+			}
+		})
+		.fail(function(err){
+			$userInfo.find('.err').html('请求失败，请稍后再试')
+		})
 	})
 	
 	

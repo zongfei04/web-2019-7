@@ -4,6 +4,7 @@ const hmac = require('../util/hmac.js')
 var router = express.Router()
 
 
+
 //处理注册
 router.post('/register', (req, res) => {
 	//获取注册参数信息
@@ -58,6 +59,9 @@ router.post('/login', (req, res) => {
 	userModel.findOne({username:username,password:hmac(password)},'-password')
 	.then((user)=>{
 		if(user){//该用户名已经存在
+			//登录成功后设置cookie
+			//req.cookies.set('userInfo',JSON.stringify(user))
+			req.session.userInfo = user
 			res.json({
 				code:0,
 				message:'登录成功',
@@ -80,6 +84,15 @@ router.post('/login', (req, res) => {
 	})
 
 	//插入数据
+})
+//处理退出
+router.get('/logout',(req,res)=>{
+	// req.cookies.set('userInfo',null)
+	req.session.destroy()
+	res.json({
+		code:0,
+		message:'退出成功'
+	})
 })
 
 module.exports = router
