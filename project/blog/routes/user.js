@@ -23,7 +23,7 @@ router.post('/register', (req, res) => {
 		else{//可以插入用户名
 			userModel.insertMany({
 				username:username,
-				password:hmac(password)
+				password:hmac(password),
 			})
 			.then((result)=>{
 				res.json({
