@@ -127,7 +127,7 @@
 		}		
 	})
 	//3.设置退出
-	$('#logout').on('click',function(){
+	/*$('#logout').on('click',function(){
 		$.ajax({
 			url:'/user/logout',
 			type:'GET'
@@ -140,7 +140,7 @@
 		.fail(function(err){
 			$userInfo.find('.err').html('请求失败，请稍后再试')
 		})
-	})
+	})*/
 	
 	
 	
