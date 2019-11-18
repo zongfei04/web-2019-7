@@ -15,7 +15,9 @@ router.use((req,res,next)=>{
 //设置管理员中心
 router.get('/', (req, res) => {
 	
-	res.send('good admin')
+	res.render('admin/index',{
+		userInfo : req.userInfo
+	})
 })
 
 module.exports = router
