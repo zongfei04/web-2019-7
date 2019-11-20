@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 const userModel = require('../modles/user.js')
+const pagination = require('../util/pagination.js')
 
 //设置管理员权限
 router.use((req,res,next)=>{
@@ -27,6 +28,7 @@ router.get('/users',(req,res)=>{
 		前提：想要进行分页必须知道页码，由前台page传入
 		约定：每一页显示几条数据，limit = 2
 	*/
+	/*
 	let limit = 2;
 	let page = req.query.page * 1;
 
@@ -67,6 +69,36 @@ router.get('/users',(req,res)=>{
 			console.log(err)
 		})
 
+	})
+	*/
+	/*
+	page:当前显示的页码
+	modle:需要操作的文档
+	query:需要查询的条件
+	projection:隐藏的字段信息
+	sort:排序
+	*/
+
+	const options = {
+		page:req.query.page * 1,
+		modle:userModel,
+		query:{},
+		projection:'-password,-__v',
+		sort:{_id:-1}
+
+	}
+	pagination(options)
+	.then(result=>{
+		res.render('admin/user_list',{
+			userInfo : req.userInfo,
+			users:result.docs,
+			page:result.page,
+			list:result.list,
+			pages:result.pages
+		})
+	})
+	.catch(err=>{
+		console.log(err)
 	})
 
 

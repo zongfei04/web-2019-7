@@ -32,24 +32,37 @@ router.post('/add',(req,res)=>{
 	//1.获取参数
 	const {name,order} = req.body
 	//2.查找数据库进行同名验证
-	categoryModle.findOne({name})
+	categoryModle.findOne({name:name})
 	.then(category=>{
 		if(category){//里面有数据
-			res.send('err')
+			res.render('admin/err',{
+				userInfo:req.userInfo,
+				message:'数据已存在',
+			})
 		}
-		else{没有数据
+		else{//没有数据
 			categoryModle.insertMany({name,order})
 			.then(result=>{
-				res.send('ok')
+				res.render('admin/ok',{
+					userInfo:req.userInfo,
+					message:'添加数据成功',
+					url:'/category'
+				})
 			})
 			.catch(err=>{
-				res.send('err')
+				res.render('admin/err',{
+				userInfo:req.userInfo,
+				message:'数据库操作失败',
+				})
 			})
 
 		}
 	})
 	.catch(err=>{
-		res.send('err')
+		res.render('admin/err',{
+			userInfo:req.userInfo,
+			message:'数据库操作失败',
+		})
 	})
 	//3.插入数据
 })
