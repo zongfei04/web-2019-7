@@ -50,7 +50,8 @@ router.get('/users',(req,res)=>{
 			list.push(i)
 		}
 		let skip = (page - 1)*limit
-		userModel.find({})
+		userModel.find({},'-password,-__v')
+		.sort({_id:-1})
 		.skip(skip)
 		.limit(limit)
 		.then((users)=>{
@@ -58,7 +59,8 @@ router.get('/users',(req,res)=>{
 			userInfo : req.userInfo,
 			users:users,
 			page:page,
-			list:list
+			list:list,
+			pages:pages
 			})
 		})
 		.catch((err)=>{
