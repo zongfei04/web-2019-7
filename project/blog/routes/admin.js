@@ -94,7 +94,8 @@ router.get('/users',(req,res)=>{
 			users:result.docs,
 			page:result.page,
 			list:result.list,
-			pages:result.pages
+			pages:result.pages,
+			url:'/admin/users'
 		})
 	})
 	.catch(err=>{
