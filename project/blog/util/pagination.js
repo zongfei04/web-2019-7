@@ -11,7 +11,7 @@
 
 
 async function pagination(options){
-	let {page,modle,query,projection,sort} = options
+	let {page,modle,query,projection,sort,populates} = options
 	//获取用户信息渲染模板
 	/*进行数据分页
 		前提：想要进行分页必须知道页码，由前台page传入
@@ -42,7 +42,14 @@ async function pagination(options){
 			list.push(i)
 		}
 		let skip = (page - 1)*limit
-		const docs = await modle.find(query,projection).sort(sort).skip(skip).limit(limit)
+		let result = modle.find(query,projection)
+		if(populates){
+			populates.forEach(function(populate){
+				return result.populate(populate)
+
+			})
+		}
+		const docs = await result.sort(sort).skip(skip).limit(limit)
 		return {
 			docs:docs,
 			page:page,
