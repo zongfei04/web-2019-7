@@ -21,7 +21,7 @@ router.use((req,res,next)=>{
 
 //显示文章列表首页
 router.get('/', (req, res) => {
-	
+	/*
 	const options = {
 		page:req.query.page * 1,
 		modle:articleModle,
@@ -45,6 +45,19 @@ router.get('/', (req, res) => {
 	.catch(err=>{
 		console.log(err)
 	})
+	*/
+	articleModle.getPaginationData(req)
+	.then(result=>{
+		res.render('admin/article',{
+			userInfo : req.userInfo,
+			articles:result.docs,
+			page:result.page,
+			list:result.list,
+			pages:result.pages,
+			url:'/article'
+
+		})
+	})
 })
 
 
@@ -54,7 +67,7 @@ router.get('/add', (req, res) => {
 	//首先获取所有的分类名称，将分类名称传递给模板
 	categoryModle.find({})
 	.then(categories=>{
-		res.render('admin/article_add',{
+		res.render('admin/article_add_edit',{
 			userInfo:req.userInfo,
 			categories
 		})
@@ -119,16 +132,20 @@ router.post('/uploadImg', upload.single('upload'),(req,res)=>{
 
 
 
-//处理编辑分类首页
+//处理编辑文章首页
 
 router.get('/edit/:id', (req, res) => {
 	const id = req.params.id
 	//查找数据库获取对应分类
-	categoryModle.findById(id)
-	.then(category=>{
-		res.render('admin/category_edit_add',{
-			userInfo:req.userInfo,
-			category
+	categoryModle.find({})
+	.then(categories=>{
+		articleModle.findById(id)
+		.then(article=>{
+			res.render('admin/article_add_edit',{
+				userInfo:req.userInfo,
+				categories,
+				article
+			})
 		})
 	})
 	.catch(err=>{
@@ -139,78 +156,45 @@ router.get('/edit/:id', (req, res) => {
 	})	
 })	
 
-//处理编辑分类提交
+//处理编辑文章提交
 router.post('/edit',(req,res)=>{
 	//1.获取参数
-	var {id,name,order} = req.body
+	var {category,title,intro,content,id} = req.body
 
-	if(!order){
-		order = 0
-	}
-	
 	//2.根据id获取该跳数据
-	categoryModle.findById(id)
-	.then(category=>{
-		if(category.name == name && category.order == order){//数据没有更改
-			res.render('admin/err',{
+	articleModle.updateOne({_id:id},{category,title,intro,content,id})
+		.then(data=>{
+			res.render('admin/ok',{
 				userInfo:req.userInfo,
-				message:'数据没有更该'
+				message:'文章更新成功',
+				url:'/article'
 			})
-		}
-		else{//数据更改
-			categoryModle.findOne({name:name,_id:{$ne:id}})
-			.then(category=>{//编辑的数据有与其他数据相同的，不能操作
-				if(category){
-					res.render('admin/err',{
-						userInfo:req.userInfo,
-						message:'数据中有重名数据',
-					})
-				}
-				else{//数据进行更新
-					categoryModle.updateOne({_id:id},{name,order})
-					.then(data=>{
-						res.render('admin/ok',{
-							userInfo:req.userInfo,
-							message:'数据操作成功',
-							url:'/category'
-						})
-					})
-					.catch(err=>{
-						res.render('admin/err',{
-						userInfo:req.userInfo,
-						message:'数据库操作失败',
-						})
-					})
-
-				}
-			})
-		}
-	})
-	.catch(err=>{
-		res.render('admin/err',{
+		})
+		.catch(err=>{
+			res.render('admin/err',{
 			userInfo:req.userInfo,
 			message:'数据库操作失败',
+			})
 		})
-	})
 })
 //处理分类列表的删除
 router.get('/delete/:id',(req,res)=>{
 	//获取id
 	const id = req.params.id
 	//通过id在数据库中删除数据
-	categoryModle.deleteOne({_id:id})
+	articleModle.deleteOne({_id:id})
 	.then(category=>{
 		res.render('admin/ok',{
 			userInfo:req.userInfo,
 			message:'删除数据成功',
-			url:'/category'
+			url:'/article'
 		})
 	})
 	.catch(err=>{
 		res.render('admin/err',{
 			userInfo:req.userInfo,
 			message:'删除数据失败',
-			url:'/category'
+			url:'/article'
 		})
 	})
 })
