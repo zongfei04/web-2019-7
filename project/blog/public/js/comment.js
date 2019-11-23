@@ -142,7 +142,92 @@
 		})
 	})*/
 	
+	//定义分页逻辑
+	$articlePage = $('#article-page')
 	
+	$articlePage.on('get-data',function(ev,data){
+		//文章分页函数
+		function buildArticleHtml(articles){
+			var html = ''
+
+			articles.forEach(function(article){
+				var createTime = moment(article.createAt).format('YYYY-MM-DD HH:mm:ss')
+				html +=`
+					 <div class="panel panel-default content-item">
+			          <div class="panel-heading">
+			            <h3 class="panel-title">
+			              <a href="/detail/${article._id.toString()}" class="link" target="_blank">${article.title}</a>
+			            </h3>
+			          </div>
+			          <div class="panel-body">
+			            ${article.intro}
+			          </div>
+			          <div class="panel-footer">
+			            <span class="glyphicon glyphicon-user"></span>
+			            <span class="panel-footer-text text-muted">${article.author.username}</span>
+			            <span class="glyphicon glyphicon-th-list"></span>
+			            <span class="panel-footer-text text-muted">${article.category.name}</span>
+			            <span class="glyphicon glyphicon-time"></span>
+			            <span class="panel-footer-text text-muted">${createTime}</span>
+			            <span class="glyphicon glyphicon-eye-open"></span>
+			            <span class="panel-footer-text text-muted"><em>${article.click}</em>已阅读</span>
+			          </div>
+			        </div>`
+
+				
+			})
+			return html
+		}
+		//分页器函数
+		function buildPagination(list,page,pages){
+			var html = ''
+			if(page == 1){
+				html+=`<li class="disabled">`
+			}
+			else{
+				html+=`<li>`
+			}
+			html+=`<a href="javascript:;" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>`
+		    list.forEach(function(i){
+		    	if(i == page){
+		    		html+=`<li class="active"><a href="javascript:;">${i}</a></li>`
+		    	}
+		    	else{
+		    		html+=`<li><a href="javascript:;">${i}</a></li>`
+		    	}	
+		    })
+		    if(page == pages){
+		    	html+=`<li class="disabled">`
+		    }
+		    else{
+		    	html+=`<li>`
+		    }
+		    html+=` <a href="javascript:;" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>`
+		    
+			return html
+		}
+		//获取首页文章分页
+		//构建文章列表结构
+		$('#article-wrap').html(buildArticleHtml(data.docs))
+		//构建分页器结构
+		$pagination = $articlePage.find('.pagination')
+		if(data.pages>1){
+			$pagination.html(buildPagination(data.list,data.page,data.pages))
+		}
+		else{
+			$pagination.html('')
+		}
+		
+	})
+	$articlePage.pagination({
+		url:'/articles'
+	})
 	
 	
 

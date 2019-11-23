@@ -42,9 +42,26 @@ router.get('/', (req, res) => {
 	
 })
 //设置列表页
-router.get('/list', (req, res) => {
-	res.render('main/list',{
-		userInfo:req.userInfo
+router.get('/list/:id', (req, res) => {
+	const id = req.params.id
+	articleModle.getPaginationData(req,{category:id})
+	.then(result=>{
+		getData()
+		.then(data=>{
+			const { categories,topclicks } = data
+			res.render('main/list',{
+				userInfo:req.userInfo,
+				categories,
+				topclicks,
+				//返回分页数据
+				articles:result.docs,
+				page:result.page,
+				list:result.list,
+				pages:result.pages,
+				url:'/',
+				articleCategoryId:id
+			})
+		})
 	})
 })
 //设置详情页
@@ -53,5 +70,27 @@ router.get('/detail', (req, res) => {
 		userInfo:req.userInfo
 	})
 })
-
+//设置分页逻辑ajax
+router.get('/articles',(req,res)=>{
+	let id = req.query.id
+	console.log(id)
+	let query = {}
+	if(id){
+		query = {category:id}
+	}
+	articleModle.getPaginationData(req,query)
+	.then(result=>{
+		res.json({
+			code:0,
+			message:'获取文章成功',
+			result:result
+		})
+	})
+	.catch(err=>{
+		res.json({
+			code:10,
+			message:'获取文章失败'
+		})
+	})
+})
 module.exports = router

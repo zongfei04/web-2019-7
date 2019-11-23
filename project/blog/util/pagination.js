@@ -27,7 +27,7 @@ async function pagination(options){
 		page = 1
 	}
 	//下一边界控制
-	const count = await modle.countDocuments()
+	const count = await modle.countDocuments(query)
 	const pages = Math.ceil(count/limit)
 		if(page > pages){
 			page = pages
