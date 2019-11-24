@@ -100,11 +100,22 @@ router.get('/users',(req,res)=>{
 	})
 	.catch(err=>{
 		console.log(err)
+	})	
+	
+})
+//文章评论管理
+router.get('/comment',(req,res)=>{
+	res.render('admin/comment_list',{
+		userInfo : req.userInfo
 	})
+})
 
 
-	
-	
+//设置密码
+router.get('/password',(req,res)=>{
+	res.render('admin/password',{
+		userInfo : req.userInfo
+	})
 })
 
 module.exports = router

@@ -13,7 +13,6 @@ async function getData(){
 		categories,
 		topclicks
 	}
-
 }
 
 
