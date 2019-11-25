@@ -13,10 +13,6 @@
 				url:'/comment/add',
 				type:'post',
 				dataType:'json',
-				data:{
-					content:,
-					article:
-				}
 			})
 
 		}

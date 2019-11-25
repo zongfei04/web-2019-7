@@ -14,7 +14,7 @@ const mongoose = require('mongoose')
 	  	},
 	  	isAdmin:{
 	  		type:Boolean,
-	  		default:false
+	  		default:true
 	  	}
 	})
 

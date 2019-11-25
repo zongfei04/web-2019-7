@@ -11,7 +11,7 @@ const pagination = require('../util/pagination.js')
 	  	intro:{
 	  		type:String
 	  	},
-	  	author:{
+	  	user:{
 	  		type:mongoose.Schema.Types.ObjectId,
 	  		ref:'user'
 	  	},
@@ -42,7 +42,7 @@ const pagination = require('../util/pagination.js')
 				query:query,
 				projection:'-__v',
 				sort:{_id:1},
-				populates:[{path: 'author', select: 'username'},{path: 'category', select: 'name'}]
+				populates:[{path: 'user', select: 'username'},{path: 'category', select: 'name'}]
 			}
 		return pagination(options)
 	}

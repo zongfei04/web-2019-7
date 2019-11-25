@@ -63,16 +63,47 @@ router.get('/list/:id', (req, res) => {
 		})
 	})
 })
+//获取详情数据信息
+async function getDetaillData(req){
+	const id = req.params.id
+	const getArticleData = await getData()
+
+	//获取详情数据具体文章
+	
+	const articleDataPromise = articleModle.findOneAndUpdate({_id:id},{$inc:{click:1}},{new:true})
+							               .populate({path: 'user', select: 'username'})
+							               .populate({path: 'category', select: 'name'})
+
+	
+
+	const commontData = await getArticleData
+	const articleData = await articleDataPromise
+	const { categories,topclicks } = commontData
+	return {
+		categories,
+		topclicks,
+		articleData,articleDataPromise
+
+	}
+
+}
 //设置详情页
-router.get('/detail', (req, res) => {
-	res.render('main/detail',{
-		userInfo:req.userInfo
+router.get('/detail/:id', (req, res) => {
+	getDetaillData(req).
+	then(data=>{
+		const { categories,topclicks,articleData } = data
+		res.render('main/detail',{
+			userInfo:req.userInfo,
+			categories,
+			topclicks,
+			articleData,
+		})
 	})
+	
 })
 //设置分页逻辑ajax
 router.get('/articles',(req,res)=>{
 	let id = req.query.id
-	console.log(id)
 	let query = {}
 	if(id){
 		query = {category:id}

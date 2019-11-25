@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 const userModel = require('../modles/user.js')
 const pagination = require('../util/pagination.js')
+const hmac = require('../util/hmac.js')
 
 //设置管理员权限
 router.use((req,res,next)=>{
@@ -111,10 +112,32 @@ router.get('/comment',(req,res)=>{
 })
 
 
-//设置密码
+//设置密码列表
 router.get('/password',(req,res)=>{
 	res.render('admin/password',{
 		userInfo : req.userInfo
+	})
+})
+//处理密码提交
+router.post('/password',(req,res)=>{
+	const { password } = req.body
+	//通过查找相同的id对密码进行修改
+	userModel.updateOne({_id:req.userInfo._id},{password:hmac(password)})
+	.then(data=>{
+		//清除cookie
+		req.session.destroy()
+		//返回首页
+		res.render('admin/ok',{
+			userInfo:req.userInfo,
+			message:'修改密码成功',
+			url:'/'
+		})
+	})
+	.catch(err=>{
+		res.render('admin/err',{
+			userInfo:req.userInfo,
+			message:'修改密码失败，请稍后再试',
+		})
 	})
 })
 

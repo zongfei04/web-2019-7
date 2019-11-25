@@ -1,0 +1,8 @@
+body{
+	background-color: red;
+	background-image: url('../../../003-js/images/5.jpg');
+}
+p{
+	font-size: 30px;
+	color: red;
+}
