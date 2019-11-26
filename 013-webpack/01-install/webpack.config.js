@@ -1,11 +1,19 @@
 const path = require('path');
 
 module.exports = {
+  //指定开发环境
 	mode: "production", // "production" | "development" | "none"
-  	entry: './src/index.js',
+  	entry: {
+      index:'./src/index.js',
+      about:'./src/about.js',
+      contact:'./src/contact.js'
+    },
+
+
 	  output: {
-	    filename: 'bundle.js',
+	    filename: '[name]-[hash]-bundle.js',
 	    path: path.resolve(__dirname, 'dist')
+      
 	  },
 	  module: {
      rules: [
