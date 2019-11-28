@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //1.连接数据库
 mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true,useUnifiedTopology: true })
 //获取db对象
+mongoose.set('useFindAndModify',false)
 const db = mongoose.connection
 //连接数据库失败
 db.on('error', () => {

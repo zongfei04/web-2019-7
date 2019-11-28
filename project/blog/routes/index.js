@@ -75,9 +75,9 @@ async function getDetaillData(req){
 							               .populate({path: 'category', select: 'name'})
 
 	
-
-	const commontData = await getArticleData
 	const articleData = await articleDataPromise
+	const commontData = await getArticleData
+
 	const { categories,topclicks } = commontData
 	return {
 		categories,
@@ -97,6 +97,7 @@ router.get('/detail/:id', (req, res) => {
 			categories,
 			topclicks,
 			articleData,
+			articleCategoryId:articleData.category._id.toString()
 		})
 	})
 	
