@@ -26,7 +26,7 @@ class App extends Component{
 		})
 		
 	}
-	handleDel(index){
+	handleDel(index){n
 		const list = [...this.state.list]
 		list.splice(index,1)
 		this.setState({
