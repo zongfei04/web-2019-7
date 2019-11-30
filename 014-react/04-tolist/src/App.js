@@ -1,6 +1,7 @@
 
 import React,{Component,Fragment} from 'react'
 import './App.css'
+import Item from './Item.js'
 
 class App extends Component{
 	constructor(props){
@@ -10,53 +11,54 @@ class App extends Component{
 			list:['吃饭','睡觉','打豆豆','写代码'],
 			task:''
 		}
+		this.handleInput = this.handleInput.bind(this)
+		this.handleAdd = this.handleAdd.bind(this)
 		
 	}
 	handleAdd(){
 		const list = [...this.state.list,this.state.task]
-		this.setState({
+		this.setState((preState)=>({
 			list:list,
 			task:''
+		}),()=>{
+			console.log(this.ul.childNodes)
 		})
+		
+
 	}
 	handleInput(ev){
-		// console.log(ev.target.value)
 		this.setState({
 			task:ev.target.value
 		})
-		
 	}
-	handleDel(index){n
+	handleDel(index){
 		const list = [...this.state.list]
 		list.splice(index,1)
-		this.setState({
-			list
-		})
+		this.setState((preState)=>({
+			list:list
+		}))
 
 	}
+	getItems(){
+		return this.state.list.map((item,index)=>{
+					return (
+						<Item 
+							key={index} 
+							task={item} 
+							handleDel={this.handleDel.bind(this)}
+						 />
+					)
+
+				})
+	}
 	render(){
-		/*不用显示多余的div
-		return <Fragment>
-			<input /><button>提交</button>
-		</Fragment>
-		*/
 		return (
 			<div className="box">
-				<input onChange={this.handleInput.bind(this)} value={this.state.task}/>
-				<button className="btn" onClick={this.handleAdd.bind(this)}>提交</button>
-				<ul className="list">
+				<input ref={(input)=>{this.input = input}} onChange={this.handleInput} value={this.state.task}/>
+				<button className="btn" onClick={this.handleAdd}>提交</button>
+				<ul className="list" ref={(ul)=>{this.ul = ul}}>
 					{
-						/*
-						<li>吃饭</li>
-						<li>睡觉</li>
-						<li>打豆豆</li>
-						*/
-						this.state.list.map((item,index)=>{
-							return (
-								<li onClick={this.handleDel.bind(this,index)} key={index}>{item}</li>
-							)
-
-						})
+						this.getItems()
 					}
 					
 				</ul>
