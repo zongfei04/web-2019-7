@@ -5,7 +5,10 @@ import Item from './Item.js'
 
 class App extends Component{
 	constructor(props){
+		//挂载时
+		console.log('constructor')
 		super(props)
+
 		//初始化state
 		this.state = {
 			list:['吃饭','睡觉','打豆豆','写代码'],
@@ -13,8 +16,12 @@ class App extends Component{
 		}
 		this.handleInput = this.handleInput.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
-		
 	}
+	//挂载时
+	static getDerivedStateFromProps(props, state){
+			console.log('getDerivedStateFromProps')
+			return null
+		}
 	handleAdd(){
 		const list = [...this.state.list,this.state.task]
 		this.setState((preState)=>({
@@ -52,6 +59,7 @@ class App extends Component{
 				})
 	}
 	render(){
+		console.log('render')
 		return (
 			<div className="box">
 				<input ref={(input)=>{this.input = input}} onChange={this.handleInput} value={this.state.task}/>

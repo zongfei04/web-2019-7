@@ -5,8 +5,17 @@
 	<title>timer-test</title>
 </head>
 <body>
-	<h1>hello world</h1>
-	<p></p>
+	<div id="root">
+		<h1>hello world</h1>
+		<p>2019-12-2 09:29:00</p>
+	</div>
 	
 </body>
+<script>
+	var oRoot = document.getElementById('root')
+	function thick(){
+		oRoot.innerHTML = `<h1>hello world</h1><p>${new Date().toLocaleString()}</p>`
+	}
+	setInterval(thick,1000)
+</script>
 </html>
