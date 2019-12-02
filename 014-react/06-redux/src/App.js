@@ -11,13 +11,6 @@ class App extends Component{
 	constructor(props){
 		super(props)
 
-		//初始化state
-		/*
-		this.state = {
-			list:['吃饭','睡觉','打豆豆','写代码'],
-			task:''
-		}
-		*/
 		this.handleInput = this.handleInput.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 		this.state = store.getState()
@@ -29,8 +22,6 @@ class App extends Component{
 			list:list,
 			task:''
 		}))
-		
-
 	}
 	handleInput(ev){
 		this.setState({
@@ -43,28 +34,10 @@ class App extends Component{
 		this.setState((preState)=>({
 			list:list
 		}))
-
 	}
-	/*
-	getItems(){
-		return this.state.list.map((item,index)=>{
-					return (
-						<Item 
-							key={index} 
-							task={item} 
-							handleDel={this.handleDel.bind(this,index)}
-						 />
-					)
-
-				})
-	}
-	*/
 	render(){
 		return (
 			<div className="box">
-				{
-				//<input ref={(input)=>{this.input = input}} onChange={this.handleInput} value={this.state.task}/>
-				}
 				<Row>
 					<Col span={20}>
 						<Input 
@@ -73,19 +46,9 @@ class App extends Component{
 						/>
 					</Col>
 					<Col span={4}>
-						{
-							//<button className="btn" onClick={this.handleAdd}>提交</button>
-						}
 						<Button type="primary" onClick={this.handleAdd}>提交</Button>
 					</Col>
 				</Row>
-				{/*
-					<ul className="list" ref={(ul)=>{this.ul = ul}}>
-						{
-							this.getItems()
-						}	
-					</ul>
-				*/}
 				<Row>
 					<Col span={22}>
 						<List
@@ -100,11 +63,18 @@ class App extends Component{
 						/>
 					</Col>
 				</Row>
-
 				<DatePicker />
 			</div>
 		)
-
 	}
 }
 export default App
+
+
+
+/*
+	//安装antd
+	npm install antd --save
+	//按需加载
+	npm install --save-dev babel-plugin-import
+*/
