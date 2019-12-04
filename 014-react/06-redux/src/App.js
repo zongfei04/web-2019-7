@@ -7,6 +7,8 @@ import Item from './Item.js'
 import { DatePicker,Input,Button,Row,Col,List,Typography} from 'antd';
 import store from './store/index.js'
 
+import {CHANGE_ITEM,DEL_ITEM,ADD_ITEM} from './store/actionTypes.js'
+
 class App extends Component{
 	constructor(props){
 		super(props)
@@ -14,26 +16,53 @@ class App extends Component{
 		this.handleInput = this.handleInput.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 		this.state = store.getState()
-		console.log(store.getState())
+		store.subscribe(()=>{
+			this.setState(store.getState()) 
+		})
 	}
 	handleAdd(){
+		
 		const list = [...this.state.list,this.state.task]
-		this.setState((preState)=>({
+		/*this.setState((preState)=>({
 			list:list,
 			task:''
 		}))
+		*/
+		//派发action
+		const action = {
+			type:ADD_ITEM
+		}
+		store.dispatch(action)
 	}
 	handleInput(ev){
+		const val = ev.target.value
+		/*
 		this.setState({
 			task:ev.target.value
 		})
+		*/
+		//派发action
+		const action = {
+			type:CHANGE_ITEM,
+			payload:val
+		}
+		store.dispatch(action)
+		
+		
 	}
 	handleDel(index){
+		/*
 		const list = [...this.state.list]
 		list.splice(index,1)
 		this.setState((preState)=>({
 			list:list
 		}))
+		*/
+		const action = {
+			type:DEL_ITEM,
+			index:index
+		}
+		store.dispatch(action)
 	}
 	render(){
 		return (
