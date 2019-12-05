@@ -13,7 +13,9 @@ import {
 class App extends Component{
 	render(){
 		return (
-			<TodoList />
+			<Router>
+				<div></div>
+			</Router>
 		)
 	}
 }
