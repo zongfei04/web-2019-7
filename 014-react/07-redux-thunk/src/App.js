@@ -1,14 +1,9 @@
 
 import React,{Component,Fragment} from 'react'
 import './App.css'
-//import 'antd/dist/antd.css';
-import Item from './Item.js'
 
 import { DatePicker,Input,Button,Row,Col,List,Typography} from 'antd';
 import store from './store/index.js'
-
-//import {CHANGE_ITEM,DEL_ITEM,ADD_ITEM} from './store/actionTypes.js'
-
 import {
 	getChangeItem,
 	getAddItem,
@@ -35,7 +30,7 @@ class App extends Component{
 		})
 	}
 	componentDidMount(){
-		
+		/*
 		axios.get('http://127.0.0.1:3000')
 		.then((result)=>{
 			//派发action
@@ -44,55 +39,20 @@ class App extends Component{
 		.catch((err)=>{
 			console.log(err)
 		})
+		*/
 		
-		//store.dispatch(getLoadItem())
+		store.dispatch(getLoadItem())
 	}
 	handleAdd(){
-		
-		// const list = [...this.state.list,this.state.task]
-		/*this.setState((preState)=>({
-			list:list,
-			task:''
-		}))
-		*/
-		//派发action
-		/*
-		const action = {
-			type:ADD_ITEM
-		}
-		*/
 		store.dispatch(getAddItem())
 	}
 	handleInput(ev){
 		const val = ev.target.value
-		/*
-		this.setState({
-			task:ev.target.value
-		})
-		*/
-		//派发action
-		/*
-		const action = {
-			type:CHANGE_ITEM,
-			payload:val
-		}
-		*/
 		store.dispatch(getChangeItem(val))
 		
 		
 	}
 	handleDel(index){
-		/*
-		const list = [...this.state.list]
-		list.splice(index,1)
-		this.setState((preState)=>({
-			list:list
-		}))
-		
-		const action = {
-			type:DEL_ITEM,
-			index:index
-		}*/
 		store.dispatch(getDelteItem(index))
 	}
 	render(){
