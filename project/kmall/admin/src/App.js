@@ -10,7 +10,8 @@ import {
     Switch 
 } from "react-router-dom"
 
-import TodoList from './pages/todolist'
+//import TodoList from './pages/todolist'
+import TodoList from pages
 
 class Home extends Component{
     render(){
