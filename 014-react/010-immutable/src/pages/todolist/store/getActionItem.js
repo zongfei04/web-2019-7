@@ -1,17 +1,18 @@
 
 
-import {CHANGE_ITEM,DEL_ITEM,ADD_ITEM,LOAD_ITEM} from './actionTypes.js'
+//import {CHANGE_ITEM,DEL_ITEM,ADD_ITEM,LOAD_ITEM} from './actionTypes.js'
+import * as types from './actionTypes.js'
 import axios from 'axios'
 
 export const getChangeItem = (val)=>({
-		type:CHANGE_ITEM,
+		type:types.CHANGE_ITEM,
 		payload:val
 })
 export const getAddItem = ()=>({
-	type:ADD_ITEM
+	type:types.ADD_ITEM
 })
 export const getDelteItem = (index)=>({
-		type:DEL_ITEM,
+		type:types.DEL_ITEM,
 		index:index
 })
 /*
@@ -29,7 +30,7 @@ export const getLoadItem = ()=>{
 		.then((result)=>{
 			//派发action
 			dispatch({
-				type:LOAD_ITEM,
+				type:types.LOAD_ITEM,
 				payload:result.data
 			})
 		})

@@ -2,15 +2,6 @@ import React,{Component,Fragment} from 'react'
 import './index.css'
 
 import { DatePicker,Input,Button,Row,Col,List,Typography} from 'antd';
-//import store from '../../store/index.js'
-/*import {
-	getChangeItem,
-	getAddItem,
-	getDelteItem,
-	getLoadItem
-
-} from './store/getActionItem.js'*/
-//import * as actionItem from './store/getActionItem.js'
 import {getActionItem} from './store/index.js'
 
 import axios from 'axios'
@@ -20,11 +11,6 @@ import { connect } from 'react-redux'
 //容器组件
 
 class TodoList extends Component{
-	/*
-	componentDidMount(){
-		this.props.handleInit()
-	}
-	*/
 	render(){
 		return (
 			<div className="box">
@@ -61,11 +47,12 @@ class TodoList extends Component{
 
 //属性映射
 const mapStateToProps = (state)=>{
-	console.log(state)
 	return {
-		list:state.todolist.list,
-		task:state.todolist.task
+		list:state.get('todolist').get('list'),
+		task:state.get('todolist').get('task')
+
 	}
+	console.log(list)
 
 }
 //方法映射
