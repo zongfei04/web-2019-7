@@ -1,13 +1,17 @@
-/*
-* @Author: TomChen
-* @Date:   2019-08-09 15:59:28
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-08-14 10:35:11
-*/
+
 *{
     margin: 0;
     padding: 0;
 }
-.list li{
-	font-size: 24px;
+.login{
+	width:300px;
+	margin: 50px auto;
+	background-color: rgba(0,0,0,0.5);
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding:10px;
+	box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+.login .btn-submit{
+	width:100%;
 }
