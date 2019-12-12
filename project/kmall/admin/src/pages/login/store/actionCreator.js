@@ -5,6 +5,8 @@ import * as types  from './actionTypes.js'
 
 import {message} from 'antd'
 
+import {saveUsername} from 'util'
+
 
 const getLoadInitDataAction = (payload)=>({
     type:types.LOAD_DATA,
@@ -25,7 +27,9 @@ export const getLoginItem = (values)=>{
             if(data.code == 0){
                 //登录成功
                 //1.将用户信息保存在前台
+                saveUsername(data.data.username) 
                 //2.返回到后台首页
+                window.location.href = '/'
                 
             }
             else{//登录失败

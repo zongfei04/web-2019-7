@@ -52,6 +52,7 @@ class NormalLoginForm extends Component {
                   type="primary" 
                   className="login-form-button btn-submit"
                   onClick={this.handleSubmit}
+                  loading={false}
                   >
                     提交
                   </Button>
@@ -62,19 +63,17 @@ class NormalLoginForm extends Component {
         );
     }
 }
-
 const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
 
 
 //映射属性到组件
 const mapStateToProps = (state)=>({
-      
+      idFaceing:state.get('login')
 })
 //映射方法到组件
 const mapDispatchToProps = (dispatch)=>({
     handleLogin:(values)=>{
         dispatch(actionCreator.getLoginItem(values))
-
     }
 })
 
