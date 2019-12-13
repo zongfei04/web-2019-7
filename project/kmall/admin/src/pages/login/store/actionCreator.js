@@ -8,13 +8,17 @@ import {message} from 'antd'
 import {saveUsername} from 'util'
 
 
-const getLoadInitDataAction = (payload)=>({
-    type:types.LOAD_DATA,
-    payload
+const getLoginStartItem = (payload)=>({
+    type:types.LOGIN_START_ITEM
+})
+const getLoginDoneItem = (payload)=>({
+    type:types.LOGIN_DONE_ITEM
 })
 
 export const getLoginItem = (values)=>{
     return (dispatch,getState)=>{
+        //发送请求前显示loading
+        dispatch(getLoginStartItem())
         values.role = 'admin'
         axios({
             method:'post',
@@ -29,7 +33,7 @@ export const getLoginItem = (values)=>{
                 //1.将用户信息保存在前台
                 saveUsername(data.data.username) 
                 //2.返回到后台首页
-                window.location.href = '/'
+                 window.location.href = '/'
                 
             }
             else{//登录失败
@@ -38,7 +42,11 @@ export const getLoginItem = (values)=>{
         })
         .catch(err=>{
             message.error('请求失败，请稍后再试')
-        })        
+        })
+        .finally(()=>{
+            dispatch(getLoginDoneItem())
+        })  
+              
     }
 }
 

@@ -23,6 +23,7 @@ class NormalLoginForm extends Component {
     }
     render() {
         const { getFieldDecorator } = this.props.form;
+        const {idFaceing} = this.props
         return (
         <div className="login">
             <Form className="login-form">
@@ -52,7 +53,7 @@ class NormalLoginForm extends Component {
                   type="primary" 
                   className="login-form-button btn-submit"
                   onClick={this.handleSubmit}
-                  loading={false}
+                  loading={idFaceing}
                   >
                     提交
                   </Button>
@@ -68,7 +69,7 @@ const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLogin
 
 //映射属性到组件
 const mapStateToProps = (state)=>({
-      idFaceing:state.get('login')
+      idFaceing:state.get('login').get('idFaceing')
 })
 //映射方法到组件
 const mapDispatchToProps = (dispatch)=>({
