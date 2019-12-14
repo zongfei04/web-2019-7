@@ -1,24 +1,60 @@
 /*
-* @Author: Chen
-* @Date:   2019-12-05 15:11:29
-* @Last Modified by:   Chen
-* @Last Modified time: 2019-12-10 18:23:17
+* @Author: TomChen
+* @Date:   2019-08-12 10:29:05
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-14 11:47:54
 */
+
+import * as types  from './actionTypes.js'
+
 import { fromJS } from 'immutable'
+
 const defaultState = fromJS({
-	usernum:0,
-	ordernum:0,
-	productnum:0
+    list:["吃饭","睡觉","打豆豆"],
+    task:''
 })
-import * as types from './actionTypes.js'
 
 export default (state=defaultState,action)=>{
-	if(action.type == types.SET_COUNT){
-		return state.merge({
-			usernum:action.payload.usernum,
-			ordernum:action.payload.ordernum,
-			productnum:action.payload.productnum
-		})
-	}
-	return state
+    
+    if(action.type == types.CHANGE_ITEM){
+        /*
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.task = action.payload
+        return newState
+        */
+       return state.set('task',action.payload)
+    }
+    if(action.type == types.ADD_ITEM){
+        /*
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.list.push(state.task)
+        newState.task = ''
+        return newState
+        */
+        const list = [...state.get('list')]
+        list.push(state.get('task'))
+        return state.merge({
+            list,
+            task:''
+        })
+    }
+    if(action.type == types.DEL_ITEM){
+        /*
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.list.splice(action.payload,1)
+        return newState        
+        */
+        const list = [...state.get('list')]
+        list.splice(action.payload,1)
+        return state.set('list',list)
+    }
+    if(action.type == types.LOAD_DATA){
+        /*
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.list = action.payload
+        return newState
+        */
+       return state.set('list',action.payload)
+    }
+    return state
 }

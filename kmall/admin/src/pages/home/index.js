@@ -1,79 +1,71 @@
-/*
-* @Author: Chen
-* @Date:   2019-12-03 17:36:42
-* @Last Modified by:   Chen
-* @Last Modified time: 2019-12-10 18:14:15
-*/
-import React,{Component} from 'react'
-import axios from 'axios'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import './index.css'
-import { Breadcrumb,Card,Row, Col    } from 'antd'
+import { Button, Input, Row, Col, List } from 'antd';
 
-import {actionCreator} from './store/index.js'
-import Layout from 'common/layout'
+import "./index.css"
+import { actionCreator } from './store'
 
-
-//容器组件
-class Home extends Component{
-	constructor(props){
-		super(props)
-	}
-	componentDidMount(){
-		this.props.handleCount()
-	}
-	render(){
-		const { usernum,ordernum,productnum } = this.props
-		return(
-			<div className='Home'>
-				<Layout>
-					<Breadcrumb style={{ margin: '16px 0' }}>
-			          <Breadcrumb.Item>首页</Breadcrumb.Item>
-			        </Breadcrumb>
-			        <div className='content'>
-			        	<Row>
-			        		<Col span={8}>
-					        	<Card title="用户统计" bordered={true} style={{ width: 300 }}>
-							      <p>{usernum}</p>
-							    </Card>
-						    </Col>
-						    <Col span={8}>
-							    <Card title="订单量" bordered={true} style={{ width: 300 }}>
-							      <p>{ordernum}</p>
-							    </Card>
-					      	</Col>
-					      	<Col span={8}>
-							    <Card title="商品数量" bordered={true} style={{ width: 300 }}>
-							      <p>{productnum}</p>
-							    </Card>
-							</Col>
-					    </Row>
-			        </div>
-				</Layout>
-			</div>	
-		)
-	}
+class TodoList extends Component {
+    componentDidMount(){
+        this.props.handleInit()
+    }
+    render() {
+        const { handleChange,task,handleAdd,handleDel,list } = this.props
+        return (
+            <div className="TodoList">
+            <Row>
+                <Col span={18}>
+                    <Input 
+                        onChange={handleChange}
+                        value={task}
+                    />
+                </Col>
+                <Col span={6}>
+                    <Button 
+                        type="primary"
+                        onClick={handleAdd}
+                    >
+                        提交
+                    </Button>
+                </Col>
+            </Row>
+            <List
+              style={{marginTop:10}}
+              bordered
+              dataSource={list}
+              renderItem={(item,index) => (
+                <List.Item
+                    onClick={()=>{handleDel(index)}}
+                >
+                   {item}
+                </List.Item>
+              )}
+            />  
+        </div>
+        )          
+    }
 }
 
+//映射属性到组件
+const mapStateToProps = (state)=>({
+    task:state.get('todolist').get('task'),
+    list:state.get('todolist').get('list')      
+})
+//映射方法到组件
+const mapDispatchToProps = (dispatch)=>({
+    handleChange:(ev)=>{
+        const task = ev.target.value
+        dispatch(actionCreator.getChangeItemAction(task))
+    },
+    handleAdd:()=>{
+        dispatch(actionCreator.getAddItemAction())
+    },
+    handleDel:(index)=>{
+        dispatch(actionCreator.getDelItemAction(index))
+    },
+    handleInit:()=>{
+        dispatch(actionCreator.getRequestInitDataAction())
+    }
+})
 
-
-
-//将属性映射到组件中
-const mapStateToProps = (state)=>{
-	return {
-		usernum:state.get('home').get('usernum'),
-		ordernum:state.get('home').get('ordernum'),
-		productnum:state.get('home').get('productnum'),
-	}
-}
-//将方法映射到组件
-const mapDispatchToProps = (dispatch)=>{
-	return {
-		handleCount:()=>{
-			dispatch(actionCreator.getCountAction())
-		}
-	}
-}
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(Home)
+export default connect(mapStateToProps,mapDispatchToProps)(TodoList)
