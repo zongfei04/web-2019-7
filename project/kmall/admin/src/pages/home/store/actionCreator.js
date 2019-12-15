@@ -1,23 +1,8 @@
-/*
-* @Author: Chen
-* @Date:   2019-12-02 16:52:50
-* @Last Modified by:   Chen
-* @Last Modified time: 2019-12-03 17:45:26
-*/
+
 import axios from 'axios'
 import * as types from './actionTypes.js'
 
-export const getChangeItemAction = (val)=>({
-	type:types.CHANGE_ITEM,
-	payload:val
-})
-export const getAddItemAction = ()=>({
-	type:types.ADD_ITEM
-})
-export const getDeleteItemAction = (index)=>({
-	type:types.DEL_ITEM,
-	payload:index
-})
+
 
 
 
@@ -27,12 +12,13 @@ const getLoadInitAction = (data) =>({
 	payload:data
 })
 
-export const getRequestLoadDataAction = ()=>{
+export const getCountAction = ()=>{
 	return (dispatch,getState)=>{
-		axios.get('http://127.0.0.1:3000')
+		axios.get('http://127.0.0.1:3000/counts')
 		.then(result=>{
 			//派发action
-			dispatch(getLoadInitAction(result.data))
+			//dispatch(getLoadInitAction(result.data))
+			console.log(result)
 		})
 		.catch(err=>{
 			console.log(err)

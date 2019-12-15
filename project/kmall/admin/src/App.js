@@ -13,6 +13,8 @@ import {
 import login from './pages/login'
 import home from './pages/home'
 import {getUsername} from 'util'
+
+import Err from './commont/err'
 // import TodoList from pages
 class App extends Component {
     
@@ -40,8 +42,13 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
+                 <Switch>
                      <HomeRoute exact path="/" component={home} /> 
-                     <LoginRoute path="/login" component={login} /> 
+                     <HomeRoute path="/user" component={home} /> 
+                     <LoginRoute path="/login" component={login} />
+                     <Route component={Err} />
+                 </Switch>
+                   
                 </div>
             </Router>
         )          

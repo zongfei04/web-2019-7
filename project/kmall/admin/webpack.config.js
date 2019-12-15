@@ -33,6 +33,8 @@ module.exports = {
         alias:{
             pages:path.resolve(__dirname,'./src/pages'),
             util:path.resolve(__dirname,'./src/util'),
+            commont:path.resolve(__dirname,'./src/commont'),
+
         }
     },
     module: {
