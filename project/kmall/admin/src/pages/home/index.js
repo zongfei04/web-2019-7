@@ -16,7 +16,7 @@ class Home extends Component{
 		super(props)
 	}
 	componentDidMount(){
-
+		this.props.handleCount()
 	}
 	render(){
 		const {usernum,ordernum,productnum} = this.props
