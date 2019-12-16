@@ -12,9 +12,12 @@ import {
 
 import login from './pages/login'
 import home from './pages/home'
+import user from './pages/user'
+import category from './pages/category'
 import {getUsername} from 'util'
 
 import Err from './commont/err'
+
 // import TodoList from pages
 class App extends Component {
     
@@ -44,7 +47,8 @@ class App extends Component {
                 <div className="App">
                  <Switch>
                      <HomeRoute exact path="/" component={home} /> 
-                     <HomeRoute path="/user" component={home} /> 
+                     <HomeRoute path="/user" component={user} /> 
+                     <HomeRoute path="/category" component={category} /> 
                      <LoginRoute path="/login" component={login} />
                      <Route component={Err} />
                  </Switch>

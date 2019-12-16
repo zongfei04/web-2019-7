@@ -3,23 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>001-基本练习.html</title>
+	<style>
+		*{
+			color:#aaa;
+		}
+		body div{
+			color:#bbb;
+		}
+		.main div{
+			color:#ccc;
+		}
+		div .box1{
+			color:#ddd;
+		}
+	</style>
 </head>
 <body>
-	
+	<div class="main">
+		<div class="box1">
+			<a href="#">回到顶部</a>
+		</div>
+	</div>
 </body>
 <script>
-	/*
-	function show2(url,{method="GET",body="name=Tom"} = {}){
-		console.log(method,body);
-	}
-	show2({method:'POST',body:"name=Leo"});
-	*/
-	// var a={},
-	// 	b={key:'b'},
-	// 	c={key:'c'};
-	// a[b]=123;
-	// a[c]=456;
-	// console.log(a[b]);
-	// console.log(a[c]);
+	
 </script>
 </html>
