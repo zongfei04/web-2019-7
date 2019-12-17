@@ -21,61 +21,59 @@ class CategoryList extends Component{
 		super(props)
 	}
 	componentDidMount(){
-		this.props.handlePage()
+		 this.props.handlePage(1)
 	}
 	render(){
 		const columns = [
 		  {
-		    title: '用户名',
-		    dataIndex: 'username',
-		    key: 'username',
+		    title: '分类名称',
+		    dataIndex: 'name',
+		    key: 'name',
 		    render: text => <a>{text}</a>,
 		  },
 		  {
-		    title: '是否是管理员',
-		    dataIndex: 'isAdmin',
-		    key: 'isAdmin',
-		    render:(isAdmin)=>(isAdmin ? '是' : '否')
+		    title: '手机分类名称',
+		    dataIndex: 'mobileName',
+		    key: 'mobileName',
 		  },
 		  {
-		    title: 'email',
-		    dataIndex: 'email',
-		    key: 'email',
+		    title: '是否显示',
+		    dataIndex: 'isShow',
+		    key: 'isShow',
 		  },
 		  {
-		    title: '电话',
-		    key: 'phone',
-		    dataIndex: 'phone'
-		  },
-		  {
-		    title: '创建时间',
-		    dataIndex:'createdAt',
-		    key: 'createdAt'	    
+		    title: '排序',
+		    key: 'order',
+		    dataIndex: 'order'
 		  },
 		];
 		const {list,current,pageSize,total,handlePage,idFaceing} = this.props
 		// console.log(list)
+		/*
 		const dataSource = list.map((user)=>{
 			return {
 				key:user.get('_id'),
-				username:user.get('username'),
-				isAdmin:user.get('isAdmin'),
-				email:user.get('email'),
-				phone:user.get('phone'),
-				createdAt:moment(user.get('createdAt')).format('YYYY-MM-DD HH:mm:ss')
+				name:user.get('name'),
+				mobileName:user.get('mobileName'),
+				isShow:user.get('isShow'),
+				order:user.get('order'),
+				//createdAt:moment(user.get('createdAt')).format('YYYY-MM-DD HH:mm:ss')
 			}
 		}).toJS()
+		*/
+		const dataSource = list.toJS()
 		return(
 			<Layout>
-				 <Breadcrumb style={{ margin: '16px 0' }}>
-		          <Breadcrumb.Item>首页</Breadcrumb.Item>
-		          <Breadcrumb.Item>分类管理</Breadcrumb.Item>
-		          <Breadcrumb.Item>分类列表</Breadcrumb.Item>
-		        </Breadcrumb>
-		        <div className="btn">
-		        	 <Link to='/category/add'><Button type="primary">新增列表</Button></Link>
-		        </div>
+				
 				<div className="CategoryList">
+				     <Breadcrumb style={{ margin: '16px 0' }}>
+			          <Breadcrumb.Item>首页</Breadcrumb.Item>
+			          <Breadcrumb.Item>分类管理</Breadcrumb.Item>
+			          <Breadcrumb.Item>分类列表</Breadcrumb.Item>
+			        </Breadcrumb>
+			        <div className="btn">
+			        	 <Link to='/category/add'><Button type="primary" className="add-btn">新增列表</Button></Link>
+			        </div>
 					<Table 
 						columns={columns} 
 						dataSource={dataSource}
@@ -104,11 +102,11 @@ class CategoryList extends Component{
 //将属性映射到组件中
 const mapStateToProps = (state)=>{
 	return {
-		list:state.get('user').get('list'),
-		current:state.get('user').get('current'),
-		pageSize:state.get('user').get('pageSize'),
-		total:state.get('user').get('total'),
-		idFaceing:state.get('user').get('idFaceing')
+		list:state.get('category').get('list'),
+		current:state.get('category').get('current'),
+		pageSize:state.get('category').get('pageSize'),
+		total:state.get('category').get('total'),
+		idFaceing:state.get('category').get('idFaceing')
 	}
 }
 //将方法映射到组件

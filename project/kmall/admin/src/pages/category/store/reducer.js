@@ -5,7 +5,8 @@ const defaultState = fromJS({
 	current:0,
 	pageSize:0,
 	total:0,
-	idFaceing:false
+	idFaceing:false,
+	categories:[]
 })
 import * as types from './actionTypes.js'
 
@@ -24,6 +25,9 @@ export default (state=defaultState,action)=>{
     }
     if(action.type == types.PAGE_DONE_ITEM){
         return state.set('idFaceing',false)
+    }
+    if(action.type == types.SET_LEVEL_ACTION){
+    	return state.set('categories',fromJS(action.payload))
     }
 	return state
 }

@@ -17,6 +17,8 @@ const setPageAction = (payload) =>({
 	payload
 })
 
+
+
 export const getPageAction = (page)=>{
 	return (dispatch,getState)=>{
 		//发送请求前显示loading

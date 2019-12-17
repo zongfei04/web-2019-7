@@ -1,0 +1,116 @@
+
+
+const path = require('path')
+
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+//css打包工具
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+    //指定环境
+    mode:'development',
+    entry:{
+        index:'./src/views/index.js',
+    },
+    //出口
+    output: {
+        //「入口分块(entry chunk)」的文件名模板
+        // filename: '[name]-[chunkhash]-bundle.js',
+        filename: '[name]-[hash]-bundle.js',
+        //指定输出参考根路径
+        publicPath:'/',
+        //所有输出文件的目标路径
+        path: path.resolve(__dirname, 'dist')
+    },
+    //配置别名
+    resolve:{
+        alias:{
+            pages:path.resolve(__dirname,'./src/pages'),
+            util:path.resolve(__dirname,'./src/util'),
+            commont:path.resolve(__dirname,'./src/commont'),
+            api:path.resolve(__dirname,'./src/api'),
+
+        }
+    },
+    module: {
+        rules: [
+            {
+            test: /\.css$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                }
+              },
+              "css-loader"
+            ]
+          },
+        //处理图片
+            {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 400
+                        }
+                    }
+                ]
+            },
+        //bable
+            {
+                test:/\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        // presets: ['env', 'react'],
+                        presets: ['env','es2015','react','stage-3'],
+                        plugins: [["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }] ]
+                    },
+                }
+            },
+            //配置主题颜色
+            {
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader',
+                }, {
+                    loader: 'css-loader', // translates CSS into CommonJS
+                }, {
+                    loader: 'less-loader', // compiles Less to CSS
+                    options: {
+                        modifyVars: {
+                            'primary-color': '#1DA57A',
+                            'link-color': '#1DA57A',
+                            'border-radius-base': '2px',
+                        },
+                        javascriptEnabled: true,
+                    },
+                }],
+            }
+        ]
+    },
+    plugins:[
+        new MiniCssExtractPlugin({}),
+        new CleanWebpackPlugin(),
+        new htmlWebpackPlugin({
+            template:'./src/pages/index/index.html',//模板文件
+            filename:'index.html',//输出的文件名
+            //inject:'head',//脚本写在那个标签里,默认是true(在body结束后)
+            hash:true,//给生成的js/css文件添加一个唯一的hash
+        }),
+        new htmlWebpackPlugin({
+            template:'./src/pages/list/index.html',//模板文件
+            filename:'list.html',//输出的文件名
+            //inject:'head',//脚本写在那个标签里,默认是true(在body结束后)
+            hash:true,//给生成的js/css文件添加一个唯一的hash
+        })
+    ],
+    devServer: {
+        contentBase: './dist',//内容的目录
+        port:3001,//指定服务端口
+        historyApiFallback:true//让h5路由不向后端发送请求
+    },                
+}
