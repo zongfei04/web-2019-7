@@ -16,7 +16,7 @@ import {
 } from "react-router-dom"
 
 //容器组件
-class CategoryList extends Component{
+class ProductList extends Component{
 	constructor(props){
 		super(props)
 	}
@@ -99,31 +99,18 @@ class CategoryList extends Component{
 		  },
 		];
 		const {list,current,pageSize,total,handlePage,idFaceing,handleUpdataState,handleUpdataMobilename,handleUpdataOrdername,handleIsShow} = this.props
-		// console.log(list)
-		/*
-		const dataSource = list.map((user)=>{
-			return {
-				key:user.get('_id'),
-				name:user.get('name'),
-				mobileName:user.get('mobileName'),
-				isShow:user.get('isShow'),
-				order:user.get('order'),
-				//createdAt:moment(user.get('createdAt')).format('YYYY-MM-DD HH:mm:ss')
-			}
-		}).toJS()
-		*/
 		const dataSource = list.toJS()
 		return(
 			<Layout>
 				
-				<div className="CategoryList">
+				<div className="ProductList">
 				     <Breadcrumb style={{ margin: '16px 0' }}>
 			          <Breadcrumb.Item>首页</Breadcrumb.Item>
-			          <Breadcrumb.Item>分类管理</Breadcrumb.Item>
-			          <Breadcrumb.Item>分类列表</Breadcrumb.Item>
+			          <Breadcrumb.Item>商品管理</Breadcrumb.Item>
+			          <Breadcrumb.Item>商品列表</Breadcrumb.Item>
 			        </Breadcrumb>
 			        <div className="btn">
-			        	 <Link to='/category/add'><Button type="primary" className="add-btn">新增列表</Button></Link>
+			        	 <Link to='/product/save'><Button type="primary" className="add-btn">新增商品</Button></Link>
 			        </div>
 					<Table 
 						columns={columns} 
@@ -153,11 +140,11 @@ class CategoryList extends Component{
 //将属性映射到组件中
 const mapStateToProps = (state)=>{
 	return {
-		list:state.get('category').get('list'),
-		current:state.get('category').get('current'),
-		pageSize:state.get('category').get('pageSize'),
-		total:state.get('category').get('total'),
-		idFaceing:state.get('category').get('idFaceing')
+		list:state.get('product').get('list'),
+		current:state.get('product').get('current'),
+		pageSize:state.get('product').get('pageSize'),
+		total:state.get('product').get('total'),
+		idFaceing:state.get('product').get('idFaceing')
 	}
 }
 //将方法映射到组件
@@ -186,4 +173,4 @@ const mapDispatchToProps = (dispatch)=>{
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(CategoryList)
+export default connect(mapStateToProps,mapDispatchToProps)(ProductList)

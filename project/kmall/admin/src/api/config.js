@@ -14,5 +14,13 @@ export const API_CONFIG = {
 	//处理新增父级分类
 	getLevelCategory:          ['/categories/levelCategories','get'],
 	//获取分类分页数据
-	getCategoryList:           ['/categories/list','get']
+	getCategoryList:           ['/categories/list','get'],
+	//更新分类名称
+	updateCategoryName:        ['/categories/name','put'],
+	//更新手机分类名称
+	updateMobilename:          ['/categories/mobileName','put'],
+	//更新排序
+	updateOrdername:           ['/categories/order','put'],
+	//是否显示处理
+	categoryIsShow:            ['/categories/isShow','put']
 }

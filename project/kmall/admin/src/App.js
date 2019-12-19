@@ -14,6 +14,7 @@ import login from './pages/login'
 import home from './pages/home'
 import user from './pages/user'
 import category from './pages/category'
+import Product from './pages/product'
 import {getUsername} from 'util'
 
 import Err from './commont/err'
@@ -49,6 +50,7 @@ class App extends Component {
                      <HomeRoute exact path="/" component={home} /> 
                      <HomeRoute path="/user" component={user} /> 
                      <HomeRoute path="/category" component={category} /> 
+                     <HomeRoute path="/product" component={Product} /> 
                      <LoginRoute path="/login" component={login} />
                      <Route component={Err} />
                  </Switch>

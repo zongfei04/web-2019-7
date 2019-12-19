@@ -1,0 +1,11 @@
+
+
+.ProductList .ant-table-content{
+	min-height: 600px;
+}
+.ProductList .btn{
+	height:40px;
+}
+.ProductList .add-btn{
+	float: right;
+}
