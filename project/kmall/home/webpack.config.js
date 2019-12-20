@@ -29,7 +29,9 @@ module.exports = {
         index:'./src/pages/index/index.js',
         list:'./src/pages/list/index.js',
         common:'./src/pages/common/index.js',
-        'user-login':'./src/pages/user-login/index.js'
+        'user-login':'./src/pages/user-login/index.js',
+        'user-register':'./src/pages/user-register/index.js',
+        'result':'./src/pages/result/index.js'
     },
     //出口
     output: {
@@ -101,15 +103,17 @@ module.exports = {
         new htmlWebpackPlugin(pluginsHtmlConfig('index','首页')),
         new htmlWebpackPlugin(pluginsHtmlConfig('list','列表')),
         new htmlWebpackPlugin(pluginsHtmlConfig('user-login','登录')),
+        new htmlWebpackPlugin(pluginsHtmlConfig('user-register','注册')),
+        new htmlWebpackPlugin(pluginsHtmlConfig('result','结果')),
 
     ],
     devServer: {
         contentBase: './dist',//内容的目录
         port:3003,//指定服务端口
-        historyApiFallback:true,//让h5路由不向后端发送请求,
+        //historyApiFallback:true,//让h5路由不向后端发送请求,
         proxy: [{
-          context: ['/sessions'],
-          target: 'http:127.0.0.1:3000',
+          context: ['/sessions','/users'],
+          target: 'http://127.0.0.1:3000',
         }]
     },                
 }
