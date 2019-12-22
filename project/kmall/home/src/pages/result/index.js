@@ -8,6 +8,6 @@ var _util = require('util')
 var api = require('api')
 
 $(function(){
-	_util.getParams('type')
-	$('.register').show()
+	var type = _util.getParams('type') || 'default'
+	$('.'+type).show()
 })

@@ -36,6 +36,6 @@ module.exports = {
 		var query = window.location.search.substr(1)
 		var reg = new RegExp('(^|&)'+key+'='+'([^&]*)(&|$)') 
 		var result = query.match(reg)
-		console.log(result)
+		return result ? decodeURIComponent(result[2]) : null
 	}
 }
