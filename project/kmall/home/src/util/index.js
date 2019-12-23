@@ -1,4 +1,5 @@
 
+var Hogan = require('hogan.js')
 
 module.exports = {
 	valData:function(value,type){
@@ -30,12 +31,17 @@ module.exports = {
 		alert(msg)
 	},
 	showAload:function(){
-		window.location.href = '/user-login.html'
+		window.location.href = '/user-login.html?redirect='+encodeURIComponent(window.location.href)
 	},
 	getParams:function(key){
 		var query = window.location.search.substr(1)
 		var reg = new RegExp('(^|&)'+key+'='+'([^&]*)(&|$)') 
 		var result = query.match(reg)
 		return result ? decodeURIComponent(result[2]) : null
+	},
+	render:function(tpl,data){
+		var template = Hogan.compile(tpl);
+		var html = template.render(data);
+		return html
 	}
 }

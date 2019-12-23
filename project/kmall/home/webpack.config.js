@@ -31,7 +31,9 @@ module.exports = {
         common:'./src/pages/common/index.js',
         'user-login':'./src/pages/user-login/index.js',
         'user-register':'./src/pages/user-register/index.js',
-        'result':'./src/pages/result/index.js'
+        'result':'./src/pages/result/index.js',
+        'user-center':'./src/pages/user-center/index.js',
+        'user-update-password':'./src/pages/user-update-password/index.js'
     },
     //出口
     output: {
@@ -93,6 +95,13 @@ module.exports = {
                     },
                 }
             },
+            //处理tpl
+            {
+                test:/\.tpl$/,
+                use: {
+                    loader: 'html-loader'
+                }
+            },
         ]
     },
     plugins:[
@@ -105,7 +114,8 @@ module.exports = {
         new htmlWebpackPlugin(pluginsHtmlConfig('user-login','登录')),
         new htmlWebpackPlugin(pluginsHtmlConfig('user-register','注册')),
         new htmlWebpackPlugin(pluginsHtmlConfig('result','结果')),
-
+        new htmlWebpackPlugin(pluginsHtmlConfig('user-center','个人中心')),
+        new htmlWebpackPlugin(pluginsHtmlConfig('user-update-password','更新密码')),
     ],
     devServer: {
         contentBase: './dist',//内容的目录
