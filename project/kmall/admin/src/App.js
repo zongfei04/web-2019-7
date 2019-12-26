@@ -17,6 +17,8 @@ import category from './pages/category'
 import Product from './pages/product'
 import {getUsername} from 'util'
 
+import Ad from 'pages/ad'
+
 import Err from './commont/err'
 
 // import TodoList from pages
@@ -50,7 +52,8 @@ class App extends Component {
                      <HomeRoute exact path="/" component={home} /> 
                      <HomeRoute path="/user" component={user} /> 
                      <HomeRoute path="/category" component={category} /> 
-                     <HomeRoute path="/product" component={Product} /> 
+                     <HomeRoute path="/product" component={Product} />
+                     <HomeRoute path='/ad' component={Ad} /> 
                      <LoginRoute path="/login" component={login} />
                      <Route component={Err} />
                  </Switch>

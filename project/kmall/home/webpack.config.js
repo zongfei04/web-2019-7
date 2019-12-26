@@ -122,7 +122,7 @@ module.exports = {
         port:3003,//指定服务端口
         //historyApiFallback:true,//让h5路由不向后端发送请求,
         proxy: [{
-          context: ['/sessions','/users'],
+          context: ['/sessions','/users','/categories'],
           target: 'http://127.0.0.1:3000',
         }]
     },                

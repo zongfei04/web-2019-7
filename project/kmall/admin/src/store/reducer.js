@@ -6,6 +6,7 @@ import { reducer as homeReducer } from 'pages/home/store'
 import { reducer as userReducer } from 'pages/user/store'
 import { reducer as categoryReducer } from 'pages/category/store'
 import { reducer as productReducer } from 'pages/product/store'
+import {reducer as adReducer} from 'pages/ad/store'
 
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
     home:homeReducer,
     user:userReducer,
     category:categoryReducer,
-    product:productReducer
+    product:productReducer,
+    ad:adReducer
 })

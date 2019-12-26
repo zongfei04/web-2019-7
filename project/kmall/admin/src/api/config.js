@@ -2,6 +2,7 @@
 
 
 export const SERVER = 'http://127.0.0.1:3000'
+export const UPLOAD_AD_IMAGE = SERVER + '/ads/image'
 export const API_CONFIG = {
 	login:                     ['/sessions/users','post'],
 	logout:                    ['/sessions/users','delete'],
@@ -22,5 +23,12 @@ export const API_CONFIG = {
 	//更新排序
 	updateOrdername:           ['/categories/order','put'],
 	//是否显示处理
-	categoryIsShow:            ['/categories/isShow','put']
+	categoryIsShow:            ['/categories/isShow','put'],
+	//广告api
+	getAdsList:                  	["/ads/list","get"],
+    getAdsDetail:                	["/ads/detail","get"],
+    addAds:                      	["/ads","post"],
+    updateAds:                  	["/ads","put"],
+    updateAdsOrder:              	["/ads/order","put"],
+    updateAdsIsShow:             	["/ads/isShow","put"],
 }

@@ -20,7 +20,7 @@ var page = {
 			_this.submit()
 		})
 		//回车键获取键盘值
-		$('input').on('keyup',function(ev){
+		$('#search-input').on('keyup',function(ev){
 			if(ev.keyCode == 13){
 				_this.submit()
 			}

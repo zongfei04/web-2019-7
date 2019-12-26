@@ -30,6 +30,9 @@ class AdminSider extends Component{
 		            <Menu.Item key="4">
 		            	<NavLink to='/product'>商品管理</NavLink>
 		            </Menu.Item>
+		            <Menu.Item key="5">
+			            <NavLink to='/ad'>广告管理</NavLink>
+			        </Menu.Item>
 			        </Menu>
 			      </Sider>
 			</div>

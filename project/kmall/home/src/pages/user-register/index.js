@@ -81,7 +81,7 @@ var page = {
 			api.register({
 				data:fromData,
 				success:function(data){
-					window.location.href='/result.html'
+					window.location.href='/result.html?type=register'
 
 				},
 				error:function(msg){
