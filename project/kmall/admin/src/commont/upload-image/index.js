@@ -1,74 +1,64 @@
-import React,{Component} from 'react'
-import { Upload, Icon, Modal } from 'antd'
+
+import React, { Component } from 'react'
+
+import { Upload, Icon, Modal } from 'antd';
 
 class UploadImage extends Component{
 	constructor(props){
 		super(props)
 		this.state = {
-    		previewVisible: false,
-       		previewImage: '',
-       		fileList: [],
-   		}
-
-   		this.handleCancel = this.handleCancel.bind(this)
-   		this.handlePreview = this.handlePreview.bind(this)
-   		this.handleChange = this.handleChange.bind(this)
-	}
-	static getDerivedStateFromProps(props,state){
-		// console.log(props.fileList)
-		if(props.fileList){
-			if(props.fileList.length > 0 && state.fileList.length == 0){
-				return {
-					fileList:props.fileList
-				}
-			}
+			previewVisible: false,
+		    previewImage: '',
+		    fileList: [],
 		}
-		
-		return null
+		this.handleCancel = this.handleCancel.bind(this)
+		this.handlePreview = this.handlePreview.bind(this)
+		this.handleChange = this.handleChange.bind(this)
 	}
 	handleCancel(){
-		this.setState({ previewVisible: false })
+	 	this.setState({ previewVisible: false });
 	}
-	handlePreview(file){
+	handlePreview (file){
 	    this.setState({
-	      	previewImage: file.url || file.preview,
-	      	previewVisible: true,
-	    })
+	      previewImage: file.url || file.preview,
+	      previewVisible: true,
+	    });
 	}
 	handleChange({ fileList }){
+		//this.props.getFileList(fileList)
 		this.setState({ fileList },()=>{
-			this.props.getFileList(fileList.map(file=>{
+			this.props.getFileList(fileList.map((file)=>{
 				if(file.response){
 					return file.response.url
 				}
 			}).join(','))
-		})
+		});
 	}
 	render(){
 		const { previewVisible, previewImage, fileList } = this.state;
+		const {max,action} = this.props
 	    const uploadButton = (
 	      <div>
 	        <Icon type="plus" />
 	        <div className="ant-upload-text">Upload</div>
 	      </div>
-	    )
-	    const { max,action } = this.props
+	    );
 		return (
 			<div className="clearfix">
-		        <Upload
-		          action={action}
-		          withCredentials={true}
-		          listType="picture-card"
-		          fileList={fileList}
-		          onPreview={this.handlePreview}
-		          onChange={this.handleChange}
-		        >
-		          {fileList.length >= max ? null : uploadButton}
-		        </Upload>
-		        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-		          <img alt="example" style={{ width: '100%' }} src={previewImage} />
-		        </Modal>
-		    </div>
+	        <Upload
+	          action={action}
+	          withCredentials={true}
+	          listType="picture-card"
+	          fileList={fileList}
+	          onPreview={this.handlePreview}
+	          onChange={this.handleChange}
+	        >
+	          {fileList.length >= max ? null : uploadButton}
+	        </Upload>
+	        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+	          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+	        </Modal>
+	      </div>
 		)
 	}
 }

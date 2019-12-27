@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 import Layout from 'commont/layout'
 
-import {Form, Select, Input, Button,Breadcrumb} from 'antd'
+import {Form, Select, Input, Button,Breadcrumb,InputNumber} from 'antd'
 
 const { Option } = Select;
 
@@ -11,6 +11,12 @@ import './index.css'
 import { connect } from 'react-redux'
 
 import {actionCreator} from './store/index.js'
+
+import UploadImage from 'commont/upload-image'
+
+import {UPLOAD_PRODUC_IMAGE} from 'api/config.js'
+
+import RichEditor from 'commont/rich-editor'
 
 class ProductSave extends Component{
 	constructor(props){
@@ -33,25 +39,23 @@ class ProductSave extends Component{
 	render(){
 		const { getFieldDecorator } = this.props.form;
 		const {categories} = this.props
-		console.log(categories)
 		return (
 			<div className="ProductSave">
 				<Layout>
 					<Breadcrumb style={{ margin: '16px 0' }}>
 			            <Breadcrumb.Item>首页</Breadcrumb.Item>
-			            <Breadcrumb.Item>分类管理</Breadcrumb.Item>
-			            <Breadcrumb.Item>新增分类</Breadcrumb.Item>
+			            <Breadcrumb.Item>商品管理</Breadcrumb.Item>
+			            <Breadcrumb.Item>编辑商品</Breadcrumb.Item>
 		            </Breadcrumb>
 		            <div className="content">
 		            	<Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }} >
-				        <Form.Item label="父级分类">
-				          {getFieldDecorator('pid', {
-				            rules: [{ required: true, message: '请输入父级分类名称' }],
+				        <Form.Item label="商品分类">
+				          {getFieldDecorator('category', {
+				            rules: [{ required: true, message: '请输入商品分类名称' }],
 				          })(
 				            <Select
-				              placeholder="请输入父级分类名称"
+				              placeholder="请输入商品分类名称"
 				            >
-				              <Option value="0">根分类</Option>
 				              {
 				              	categories.map((category)=>{
 				              		return <Option key={category.get('_id')}>{category.get('name')}</Option>
@@ -60,15 +64,46 @@ class ProductSave extends Component{
 				            </Select>,
 				          )}
 				        </Form.Item>
-				        <Form.Item label="分类名称">
+				        <Form.Item label="商品名称">
 				          {getFieldDecorator('name', {
-				            rules: [{ required: true, message: '请输入分类名称' }],
+				            rules: [{ required: true, message: '请输入商品名称' }],
 				          })(<Input />)}
 				        </Form.Item>
-				        <Form.Item label="手机分类名称">
-				          {getFieldDecorator('mobileName', {
-				            rules: [{ required:true, message: '请输入手机分类名称' }],
+				        <Form.Item label="商品描述">
+				          {getFieldDecorator('description', {
+				            rules: [{ required:true, message: '请输入商品描述' }],
 				          })(<Input />)}
+				        </Form.Item>
+				        <Form.Item label="商品价格">
+				          {getFieldDecorator('price', {
+				            rules: [{ required:true, message: '请输入商品价格' }],
+				          })(<InputNumber min={0} />)}
+				        </Form.Item>
+				        <Form.Item label="商品库存">
+				          {getFieldDecorator('stock', {
+				            rules: [{ required:true, message: '请输入商品库存' }],
+				          })(<InputNumber min={0} />)}
+				        </Form.Item>
+				        <Form.Item label="封面图片">
+				         	<UploadImage
+				         	 max={1} 
+				         	 action={UPLOAD_PRODUC_IMAGE}
+				         	 getFileList={(fileList)=>{
+				   				console.log(fileList)
+				         	 }}
+				         	/>
+				        </Form.Item>
+				        <Form.Item label="商品图片">
+					        <UploadImage
+					         	 max={5} 
+					         	 action={UPLOAD_PRODUC_IMAGE}
+					         	 getFileList={(fileList)=>{
+					   				console.log(fileList)
+					         	 }}
+					        />
+				        </Form.Item>
+				        <Form.Item label="商品详情">
+				         <RichEditor />
 				        </Form.Item>
 				        <Form.Item wrapperCol={{ span: 12, offset: 5 }}>
 				          <Button type="primary" onClick={this.handleSubmit}>

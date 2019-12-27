@@ -2,6 +2,7 @@
 
 
 export const SERVER = 'http://127.0.0.1:3000'
+export const UPLOAD_PRODUC_IMAGE = SERVER +'/products/images'
 export const UPLOAD_AD_IMAGE = SERVER + '/ads/image'
 export const API_CONFIG = {
 	login:                     ['/sessions/users','post'],
