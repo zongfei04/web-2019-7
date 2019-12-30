@@ -13,7 +13,6 @@ const getApiObj = (API_CONFIG)=>{
 			return request(url,method,data)
 		}
 	}
-
 	return apiObj
 }
 const request = (url,method,data)=>{
