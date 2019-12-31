@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-v-on-once.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large{
+			width:400px;
+			height:400px;
+			border:1px solid #000;
+			background-color: red;
+			margin: 50px auto;
+		}
+		.big{
+			width:300px;
+			height:300px;
+			border:1px solid #000;
+			background-color: blue;
+			margin:50px auto;
+		}
+		.small{
+			width:200px;
+			height:200px;
+			border:1px solid #000;
+			background-color: green;
+			margin:50px auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="large" @click="large()">
+			<div class="big" @click.once="big()">
+				<div class="small" @click="small()"></div>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			count:0
+		},
+		methods:{
+			large:function(){
+				console.log('large ....')
+			},
+			big:function(){
+				console.log('big ....')
+			},
+			small:function(ev){
+				console.log('small ....')
+			}
+		}
+	})
+</script>
+</html>

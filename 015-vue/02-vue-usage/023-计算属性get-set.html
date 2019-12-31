@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-计算属性get-set.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="fullname">
+		<p>firstName:::{{firstName}}</p>
+		<p>lastName:::{{lastName}}</p>
+		<p>fullName::::{{getfullName()}}</p>
+		<p>fullName::::{{fullname}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			firstName:'Gu',
+			lastName:'Zongfei'
+		},
+		methods:{
+			getfullName:function(){
+				return this.firstName + '' + this.lastName
+			}
+			
+		},
+		computed:{
+			fullname:{
+				get:function(){
+					return this.firstName + ' ' + this.lastName
+				},
+				set:function(newValue){
+					var names = newValue.split(' ')
+					this.firstName = names[0]
+					this.lastName = names[names.length-1]
+
+				}
+			}
+		}
+
+	})
+</script>
+</html>

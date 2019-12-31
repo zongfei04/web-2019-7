@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-属性的绑定.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background-color: red;
+		}
+		.error{
+			color:blue;
+		}
+		p{
+			margin-top: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- <p class="active error">我是内容</p> -->
+		<p :class="{active:true,error:true}">我是内容</p>
+		<p :class="{active:isActive,error:isError}">我是内容</p>
+		<p :class="['active','error']">:class="['active','error']"</p>
+		<p :class="['active','error']">我是内容</p>
+		<p :class="[isActive?'active':'','error']">我是内容</p>
+		<p :class="objClass">我是内容</p>
+		<p :class="arrClass">我是内容</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			isActive:false,
+			isError:true,
+			objClass:{
+				active:true,
+				error:true
+			},
+			arrClass:[
+				'active',
+				'error'
+			]
+		}	
+	})
+</script>
+</html>

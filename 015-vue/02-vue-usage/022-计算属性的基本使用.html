@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-v-on-once.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p>firstName:::{{firstName}}</p>
+		<p>lastName:::{{lastName}}</p>
+		<p>fullName::::{{getfullName()}}</p>
+		<p>fullName::::{{fullname}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			firstName:'Gu',
+			lastName:'Zongfei'
+		},
+		methods:{
+			getfullName:function(){
+				return this.firstName + '' + this.lastName
+			}
+			
+		},
+		computed:{
+			fullname:function(){
+				return this.firstName + '' + this.lastName
+			}
+		}
+	})
+</script>
+</html>

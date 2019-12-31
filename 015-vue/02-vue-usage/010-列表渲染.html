@@ -12,10 +12,12 @@
 				<th>年龄</th>
 				<th>成绩</th>
 			</tr>
-			<tr>
-				<td>小明</td>
-				<td>18</td>
-				<td>79</td>
+			<tr v-for="person in persons">
+				<td>{{person.name}}</td>
+				<td>{{person.age}}</td>
+				<td>{{person.score}}</td>
+				<td v-if="person.score>=60">合格</td>
+				<td v-else>不合格</td>
 			</tr>
 		</table>
 	</div>
@@ -25,9 +27,11 @@
 	var vm = new Vue({
 		el:'#app',
 		data:{
-			
+			persons:[
+				{name:'bob',age:18,score:79},
+				{name:'tom',age:19,score:56},
+			]
 		}	
 	})
-	
 </script>
 </html>
