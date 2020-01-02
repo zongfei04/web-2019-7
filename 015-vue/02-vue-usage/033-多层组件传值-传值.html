@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-多层组件传值-传值.html</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<todo-item 
+			v-for="(item,index) in items"
+			:task="item.task"
+			:key="index"
+			:dataline="item.dataline"
+		></todo-item>
+	</div>
+
+	<template id="todo-item">
+		<div>
+			<task :task="task"></task>
+			<dataline :dataline="dataline"></dataline>
+		</div>
+	</template>
+	<template id="task">
+		<p>{{tag}}:{{task}}</p>
+	</template>
+	<template id="dataline">
+		<p>{{tag}}:{{dataline}}</p>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//定义一个组件
+	var Task = Vue.extend({
+		data:function(){
+			return {
+				tag:'任务'
+			}
+		},
+		template:'#task',
+		props:{
+			task:String
+		}
+	})
+	var DataLine = Vue.extend({
+		data:function(){
+			return {
+				tag:'截止时间'
+			}
+		},
+		template:'#dataline',
+		props:{
+			dataline:String
+		}
+	})
+	var TodoItem = Vue.extend({
+		data:function(){
+			return {
+				tag:"截止时间"
+			}
+		},
+		components:{
+			task:Task,
+			dataline:DataLine
+		},
+		props:{
+			task:String,
+			dataline:String
+		},
+	
+		template:'#todo-item'
+	})
+	//注册组件
+	Vue.component('todo-item',TodoItem)
+	
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			items:[
+				{
+					task:'吃饭',
+					dataline:'今天晚上'
+				},
+				{
+					task:'学习vue',
+					dataline:'明天上午'
+				}
+			]
+		}
+	})
+</script>
+</html>
