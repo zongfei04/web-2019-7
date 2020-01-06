@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>042-动画-自定义动画.html</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="isShow=!isShow">过渡</button>
+        <transition 
+        enter-active-class="animated tada"
+        leave-active-class="animated swing"
+         appear>   
+            <p v-if="isShow">文字</p>
+        </transition>
+    </div>
+
+   
+</body>
+<script src="js/vue.js"></script>
+<script>
+    
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            isShow:true
+        }
+    })   
+</script>
+
+</html>

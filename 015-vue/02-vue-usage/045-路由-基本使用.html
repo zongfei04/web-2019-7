@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>044-自定义指令-局部.html</title>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用 router-link 组件来导航. -->
+        <p>
+           <router-link to="/home">Go to Home</router-link> 
+           <router-link to="/article">Go to Article</router-link> 
+           <router-link to="/list">Go to List</router-link> 
+        </p>
+        <!-- 使用 router-link 组件来导航. -->
+        <router-view></router-view>
+    </div>
+    <template id="home">
+        <div>
+            home page
+        </div>
+    </template>
+    <template id="article">
+        <div>
+            article page
+        </div>
+    </template>
+    <template id="list">
+        <div>
+            list page
+        </div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+    //1. 定义 (路由) 组件。
+    var Home = Vue.extend({
+       
+        template:'#home'
+    })
+    var Article = Vue.extend({
+       
+        template:'#article'
+    })
+    var List = Vue.extend({
+       
+        template:'#list'
+    })
+    // 2. 定义路由
+    var routes = [
+      { path: '/home', component: Home },
+      { path: '/article', component: Article },
+      { path: '/list', component: List },
+      { path: '/', redirect: '/home' }
+    ]
+    // 3. 创建 router 实例，然后传 `routes` 配置
+    const router = new VueRouter({
+      routes // (缩写) 相当于 routes: routes
+    })
+    // 4. 创建和挂载根实例。
+
+    var vm = new Vue({
+        el: '#app',
+        router,
+        data: {
+           
+        }
+    })  
+      
+</script>
+
+</html>

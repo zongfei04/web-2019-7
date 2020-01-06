@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>035-插槽-匿名.html</title>
+</head>
+
+<body>
+    <div id="app">
+       <layout>
+           首页主要内容
+       </layout>
+    </div>
+    <!--模版需要写在挂载组件的外面-->
+    <template id="layout">
+        <div>
+            <div>顶部导航</div>
+            <slot>主要内容</slot>
+            <slot>分类内容</slot>
+            <div>底部内容</div>
+        </div>
+    </template>    
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+    Vue.component('layout',{
+        template:'#layout',
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            
+        }
+    })   
+</script>
+
+</html>

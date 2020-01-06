@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>041-动画-列表.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width:400px;
+            margin:50px auto;
+        }
+        input{
+            width:80%;
+            height:34px;
+        }
+        button{
+            width:10%;
+            height:34px;
+        }
+        li{
+            width:300px;
+            margin-top: 20px;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrap">
+            <input type="text"><button>新增</button>
+            <ul>
+                <li>吃饭</li>
+                <li>睡觉</li>
+            </ul>
+        </div>
+    </div>
+
+   
+</body>
+<script src="js/vue.js"></script>
+<script>
+    
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+           
+        }
+    })   
+</script>
+
+</html>
